@@ -1,10 +1,18 @@
 <h1 class="text-center">Login</h1>
 <div class="container">
   <div class="row">
-    <form [formGroup]="login" class="border border my-1 col-md-12" (ngSubmit)="userlogin()">
+    <form
+      [formGroup]="login"
+      class="border border my-1 col-md-12"
+      (ngSubmit)="userlogin()"
+    >
       <div class="row my-4">
         <div class="col-md-6">
-          <label for="" class="col-md-6 text-center">Username</label>
+          <label for="" class="col-md-6 text-center"
+            >Username<span class="text-danger error" *ngIf="Username?.invalid"
+              >*</span
+            ></label
+          >
           <input
             type="text"
             name="Username"
@@ -15,9 +23,22 @@
           />
         </div>
       </div>
+      <div class="row">
+        <span
+          style="padding-left: 15%"
+          class="error text-danger col-md-5 text-center"
+          *ngIf="Username?.invalid && Username && Username.touched"
+          >Password Is Required</span
+        >
+      </div>
+
       <div class="row my-4">
         <div class="col-md-6">
-          <label for="" class="col-md-6 text-center">Password</label>
+          <label for="" class="col-md-6 text-center"
+            >Password<span class="text-danger error" *ngIf="password?.invalid"
+              >*</span
+            ></label
+          >
           <input
             class="col-md-6"
             type="password"
@@ -29,7 +50,17 @@
         </div>
       </div>
       <div class="row">
-        <button class="col-md-2 bg-success my-5">Login</button>
+        <span
+          style="padding-left: 15%"
+          class="error text-danger col-md-5 text-center"
+          *ngIf="password?.invalid && password && password.touched"
+          >Password Is Required</span
+        >
+      </div>
+      <div class="row">
+        <button class="col-md-2 my-5 login-btn" [disabled]="login.invalid">
+          Login
+        </button>
       </div>
     </form>
   </div>

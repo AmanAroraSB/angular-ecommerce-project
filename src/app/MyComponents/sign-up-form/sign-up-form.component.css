@@ -60,4 +60,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }  .signup-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
