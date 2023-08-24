@@ -6,14 +6,19 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BillingDetailsComponent } from './MyComponets/billing-details/billing-details.component';
 import { SignUpFormComponent } from './MyComponents/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './MyComponents/login-form/login-form.component';
+import { authguardGuard } from './Services/authguard.guard';
 
 
 const routes: Routes = [
-{  path:``, component:ItemsComponent},{
-  path:"cart",component:CartComponent
+{  path:``, component:LoginFormComponent},{
+  path:"cart",component:CartComponent,canActivate:[authguardGuard]
 },
 {
-path:"bill",component:BillingDetailsComponent
+  path:"Home",component:ItemsComponent,canActivate:[authguardGuard]
+}
+,
+{
+path:"bill",component:BillingDetailsComponent,canActivate:[authguardGuard]
 },
 {
   path:"Singup",component:SignUpFormComponent

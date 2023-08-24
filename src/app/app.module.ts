@@ -15,6 +15,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { SignUpFormComponent } from './MyComponents/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './MyComponents/login-form/login-form.component'
 import { AuthService } from './Services/auth.service';
+import { ItemSingleComponent } from './MyComponets/item-single/item-single.component';
 // import { AddtodoComponent } from './MyComponets/addtodo/addtodo.component';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AuthService } from './Services/auth.service';
     FooterComponent,
     BillingDetailsComponent,
     SignUpFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ItemSingleComponent
 
     // AddtodoComponent
   ],

@@ -28,7 +28,7 @@
           style="padding-left: 15%"
           class="error text-danger col-md-5 text-center"
           *ngIf="Username?.invalid && Username && Username.touched"
-          >Password Is Required</span
+          >Username Is Required</span
         >
       </div>
 
@@ -61,6 +61,11 @@
         <button class="col-md-2 my-5 login-btn" [disabled]="login.invalid">
           Login
         </button>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-6">
+          Don't have an account?<a routerLink="/Singup">Signup</a>
+        </div>
       </div>
     </form>
   </div>

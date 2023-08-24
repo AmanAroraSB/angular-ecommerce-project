@@ -1,4 +1,4 @@
-# Ecomerce
+# Ecommerce
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
@@ -45,5 +45,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## 5.Billing Details
 
 ![screencapture-localhost-4200-bill-2023-08-23-17_10_57](https://github.com/anilprajapatistartbit/angular-ecommerce/assets/133842742/04a2c155-eeb8-4241-bfa0-95f88e907bae)
-
-

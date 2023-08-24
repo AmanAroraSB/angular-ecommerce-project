@@ -1,4 +1,4 @@
-<h1 class="text-center">Singup for Website</h1>
+<h1 class="text-center">Signup for Website</h1>
 <div class="container">
   <div class="row">
     <form
@@ -8,7 +8,11 @@
     >
       <div class="row my-4">
         <div class="col-md-6">
-          <label for="" class="col-md-6 text-center">Username</label>
+          <label for="" class="col-md-6 text-center"
+            >Username<span class="text-danger error" *ngIf="Username?.invalid"
+              >*</span
+            ></label
+          >
           <input
             type="text"
             name="Username"
@@ -24,12 +28,16 @@
           style="padding-left: 15%"
           class="error text-danger col-md-5 text-center"
           *ngIf="Username?.invalid && Username && Username.touched"
-          >Password Is Required</span
+          >Username Is Required</span
         >
       </div>
       <div class="row my-4">
         <div class="col-md-6">
-          <label for="" class="col-md-6 text-center">Password</label>
+          <label for="" class="col-md-6 text-center"
+            >Password<span class="text-danger error" *ngIf="password?.invalid"
+              >*</span
+            ></label
+          >
           <input
             class="col-md-6"
             type="password"
@@ -50,7 +58,13 @@
       </div>
       <div class="row my-4">
         <div class="col-md-6">
-          <label for="" class="col-md-6 text-center">confirm password</label>
+          <label for="" class="col-md-6 text-center"
+            >confirm password<span
+              class="text-danger error"
+              *ngIf="confirm?.invalid"
+              >*</span
+            ></label
+          >
           <input
             class="col-md-6"
             type="password"
@@ -67,7 +81,7 @@
           class="error-message text-danger col-md-6"
           *ngIf="signup.errors?.['PasswordNoMatch']"
         >
-          Password does'nt match.
+          Password doesn't match.
         </span>
       </div>
       <div class="row">
@@ -77,6 +91,11 @@
         >
           submit
         </button>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-6">
+          Already have an account?<a routerLink="/Login">Login</a>
+        </div>
       </div>
     </form>
   </div>

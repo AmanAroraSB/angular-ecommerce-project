@@ -6,14 +6,19 @@
       class="col-md-4 mb-4 d-flex align-items-stretch"
     >
       <div class="card item-card">
-        <img [src]="item.imageURL" class="card-img-top" alt="image" />
-        <div class="card-body">
-          <h5 class="item-name">{{ item.name }}</h5>
-          <p class="item-price">${{ item.price }}</p>
-          <button class="btn btn-primary add-button" (click)="addtocart(item)">
-            Add to Cart
-          </button>
-        </div>
+        <a
+          routerLink="/Home/{{ 1 }}"
+          style="text-decoration: none; color: black"
+        >
+          <img [src]="item.imageURL" class="card-img-top" alt="image" />
+          <div class="card-body">
+            <h5 class="item-name">{{ item.name }}</h5>
+            <p class="item-price">${{ item.price }}</p>
+          </div>
+        </a>
+        <button class="btn btn-primary add-button" (click)="addtocart(item)">
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>
