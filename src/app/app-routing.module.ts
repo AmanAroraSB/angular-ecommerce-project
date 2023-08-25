@@ -7,6 +7,7 @@ import { BillingDetailsComponent } from './MyComponets/billing-details/billing-d
 import { SignUpFormComponent } from './MyComponents/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './MyComponents/login-form/login-form.component';
 import { authguardGuard } from './Services/authguard.guard';
+import { ItemSingleComponent } from './MyComponets/item-single/item-single.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,8 @@ const routes: Routes = [
 },
 {
   path:"Home",component:ItemsComponent,canActivate:[authguardGuard]
+},{
+  path:"Home/:id", component:ItemSingleComponent
 }
 ,
 {

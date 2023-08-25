@@ -1,6 +1,7 @@
 import { Component  } from '@angular/core';
 import {AuthService} from '../../Services/auth.service'
 import{AbstractControl, FormControl,FormGroup,ValidationErrors,Validator, ValidatorFn, Validators}from '@angular/forms';
+import * as alertifyjs from 'alertifyjs';
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
@@ -24,8 +25,7 @@ signup:FormGroup=new FormGroup({
 usersignup(){
   console.log(this.signup.value);
   this.Authservice.CreateUser({UserName:this.Username?.value,Password:this.password?.value}).subscribe((result)=>{
-alert(result)
-    
+  alertifyjs(result);  
   })
   
   

@@ -26,10 +26,11 @@ logoutuser(){
 settoken(token:string){
 localStorage.setItem("logged_in",token);
 }
-isloggendin():boolean{
-  if(localStorage.getItem("logged_in")){
+isloggendin(){
+ var  user=localStorage.getItem("logged_in")
+  if(user){
 
-    return true;
+    return user;
   } else{
     return false;
   }

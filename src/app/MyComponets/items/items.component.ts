@@ -20,8 +20,8 @@ export class ItemsComponent {
   }
     constructor(private productservice:ProductsService){
    productservice.getdata().subscribe(data=>{
+     this.items=data
     console.log(data);
-    this.items=data
    })
 
     }

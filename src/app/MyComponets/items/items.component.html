@@ -2,15 +2,15 @@
   <h3 class="text-center mt-4">Grocery Items</h3>
   <div class="row items">
     <div
-      *ngFor="let item of items"
+      *ngFor="let item of items as object"
       class="col-md-4 mb-4 d-flex align-items-stretch"
     >
       <div class="card item-card">
         <a
-          routerLink="/Home/{{ 1 }}"
+          routerLink="/Home/{{ item.id }}"
           style="text-decoration: none; color: black"
         >
-          <img [src]="item.imageURL" class="card-img-top" alt="image" />
+          <img [src]="item.imageUrl[0]" class="card-img-top" alt="image" />
           <div class="card-body">
             <h5 class="item-name">{{ item.name }}</h5>
             <p class="item-price">${{ item.price }}</p>

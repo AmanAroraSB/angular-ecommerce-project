@@ -22,15 +22,27 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="Singup">Sign Up</a>
+              <a class="nav-link" routerLink="Singup" *ngIf="!logggedIn()"
+                >Sign Up</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="Login" *ngIf="!isLoggedIn$"
+              <a class="nav-link" routerLink="Login" *ngIf="!logggedIn()"
                 >Login</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="price">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="logggedIn()" (click)="logout()"
+                >Logout</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="logggedIn()"
+                >Welcome! {{ loggedinuser }}</a
+              >
             </li>
           </ul>
         </div>
