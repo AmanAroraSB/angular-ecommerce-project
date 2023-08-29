@@ -1,0 +1,21 @@
+<form [formGroup]="foodForm" (ngSubmit)="onSubmit()" class="border my-3">
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name" required />
+
+  <label for="type">Type:</label>
+  <input type="text" id="type" formControlName="type" required />
+
+  <label for="price">Price:</label>
+  <input type="number" id="price" formControlName="price" required />
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" formControlName="quantity" required />
+
+  <label for="description">Description:</label>
+  <textarea id="description" formControlName="description"></textarea>
+
+  <label for="imageUrl">Image URL:</label>
+  <input type="text" id="imageUrl" formControlName="imageUrl" />
+
+  <button type="submit" [disabled]="!foodForm.valid">Add Food Item</button>
+</form>

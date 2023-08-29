@@ -11,12 +11,20 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FooterComponent } from './MyComponets/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BillingDetailsComponent } from './MyComponets/billing-details/billing-details.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignUpFormComponent } from './MyComponents/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './MyComponents/login-form/login-form.component'
 import { AuthService } from './Services/auth.service';
 import { ItemSingleComponent } from './MyComponets/item-single/item-single.component';
-// import { AddtodoComponent } from './MyComponets/addtodo/addtodo.component';
+import { AboutUsComponent } from './MyComponents/about-us/about-us.component'; 
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchfilterPipe } from './searchfilter.pipe';
+import { ProductsService } from './Services/products.service';
+import { AddproductComponent } from './MyComponents/addproduct/addproduct.component';
+import jsPDF from 'jspdf';
+
+
 
 @NgModule({
   declarations: [
@@ -29,16 +37,20 @@ import { ItemSingleComponent } from './MyComponets/item-single/item-single.compo
     BillingDetailsComponent,
     SignUpFormComponent,
     LoginFormComponent,
-    ItemSingleComponent
+    ItemSingleComponent,
+    AboutUsComponent,
+    SearchfilterPipe,
+    AddproductComponent,
+
 
     // AddtodoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule
-    ,ReactiveFormsModule
+    ,ReactiveFormsModule,NgxPaginationModule,FormsModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService,ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,12 +22,18 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="Singup" *ngIf="!logggedIn()"
+              <a
+                class="nav-link"
+                routerLink="Singup"
+                *ngIf="signupservice.Visible && !logggedIn()"
                 >Sign Up</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="Login" *ngIf="!logggedIn()"
+              <a
+                class="nav-link"
+                routerLink="Login"
+                *ngIf="loginservice.Visible && !logggedIn()"
                 >Login</a
               >
             </li>

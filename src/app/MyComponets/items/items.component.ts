@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { obejct } from 'src/app/object';
 import {ProductsService} from '../../Services/products.service'
+import { Item } from 'src/app/Item';
 
 @Component({
   selector: 'app-items',
@@ -9,8 +10,10 @@ import {ProductsService} from '../../Services/products.service'
 })
 export class ItemsComponent {
   item:obejct[]=[];
-  items:any;
-  setcartitems:obejct[]=[];
+  serarchValue:string=''
+  currentPage:number=1;
+  items:Item[]=[];
+  setcartitems:Item[]=[];
   total:number=0;
   cartitems:object[]=[];
   ngOnInit(): void {
@@ -18,9 +21,9 @@ export class ItemsComponent {
   if(get!=null)
     this.setcartitems=JSON.parse(get)
   }
-    constructor(private productservice:ProductsService){
-   productservice.getdata().subscribe(data=>{
-     this.items=data
+    constructor(private produc:ProductsService){
+      produc.getdata().subscribe(data=>{
+     this.items=data as Item[]
     console.log(data);
    })
 
@@ -35,7 +38,7 @@ export class ItemsComponent {
   //    });
   //  }
 
-addtocart(item:obejct){
+addtocart(item:Item){
   
    // console.log("clicked");
   
@@ -46,11 +49,11 @@ addtocart(item:obejct){
  
 // console.log(typeof cartitems);
 let found = false;
-    let parsed:obejct[]=JSON.parse(cartitems);
+    let parsed:Item[]=JSON.parse(cartitems);
   // console.log(parsed);
     
     // console.log(typeof parsed);
-    parsed.forEach((element : obejct) => {
+    parsed.forEach((element : Item) => {
        //console.log(element.name)
       if(element.name==item.name){
         element.quantity+=1;

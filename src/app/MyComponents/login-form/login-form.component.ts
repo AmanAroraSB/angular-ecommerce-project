@@ -1,16 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators } from '@angular/forms';
 import {AuthService} from '../../Services/auth.service';
 import { Router } from '@angular/router';
 import * as alertifyjs from 'alertifyjs';
+import { LoginserviceService } from 'src/app/Service/loginservice.service';
+import { SignupserviceService } from 'src/app/Service/signupservice.service';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
 
-export class LoginFormComponent {
-constructor(private Authservice:AuthService, private router:Router,){}
+export class LoginFormComponent implements OnInit{
+constructor(private Authservice:AuthService, private router:Router,private loginservice:LoginserviceService,private signupservice:SignupserviceService)
+{
+  if(Authservice.isloggendin()){
+    router.navigateByUrl("")
+  }
+signupservice.Visible=true;
+}
+  ngOnInit(): void {
+   this.loginservice.hide();
+   console.log("hidden");
+   
+  }
+
+
 login=new FormGroup({
   Username:new FormControl('',[Validators.required])
 ,password:new FormControl('',[Validators.required,])

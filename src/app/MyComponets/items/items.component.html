@@ -1,8 +1,14 @@
 <div class="container">
   <h3 class="text-center mt-4">Grocery Items</h3>
+  <label for="searchfilter">Search</label>
+  <input type="text" [(ngModel)]="serarchValue" />
   <div class="row items">
     <div
-      *ngFor="let item of items as object"
+      *ngFor="
+        let item of items
+          | searchfilter : serarchValue
+          | paginate : { itemsPerPage: 5, currentPage: currentPage }
+      "
       class="col-md-4 mb-4 d-flex align-items-stretch"
     >
       <div class="card item-card">
@@ -22,4 +28,7 @@
       </div>
     </div>
   </div>
+  <pagination-controls
+    (pageChange)="currentPage = $event"
+  ></pagination-controls>
 </div>

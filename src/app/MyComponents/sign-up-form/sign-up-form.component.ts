@@ -2,6 +2,8 @@ import { Component  } from '@angular/core';
 import {AuthService} from '../../Services/auth.service'
 import{AbstractControl, FormControl,FormGroup,ValidationErrors,Validator, ValidatorFn, Validators}from '@angular/forms';
 import * as alertifyjs from 'alertifyjs';
+import { LoginserviceService } from 'src/app/Service/loginservice.service';
+import { SignupserviceService } from 'src/app/Service/signupservice.service';
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
@@ -9,8 +11,9 @@ import * as alertifyjs from 'alertifyjs';
 })
 
 export class SignUpFormComponent {
-  constructor(private Authservice:AuthService){
-
+  constructor(private Authservice:AuthService,private loginservice:LoginserviceService,private signupservice:SignupserviceService){
+    loginservice.Visible=true;
+    signupservice.Visible=false;
   }
   
 signup:FormGroup=new FormGroup({

@@ -1,8 +1,9 @@
 export interface Item{
-      Id :number
-      ImageURL :string
-      Name :string
-     IsActive :boolean
-      Price :number
-      Quantity :number
+      id :number
+      imageUrl : string[]
+      name :string
+  
+     price :number
+      quantity :number
+      Description:string
 }
