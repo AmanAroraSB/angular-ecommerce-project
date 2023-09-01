@@ -1,0 +1,40 @@
+<div class="container">
+  <h3>Checkout</h3>
+  <label for="searchfilter">Search</label>
+  <input type="text" [(ngModel)]="serarchValue" />
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let USer of user
+            | paginate : { itemsPerPage: 5, currentPage: currentPage };
+          let i = index
+        "
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ USer.userName }}</td>
+        <td>{{ USer.role }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="Edit(USer.id)">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(USer.id)">
+            delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+    (pageChange)="currentPage = $event"
+  ></pagination-controls>
+</div>

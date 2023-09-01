@@ -5,6 +5,7 @@ import {NavigationEnd, Router} from '@angular/router'
 import * as alertifyjs from 'alertifyjs';
 import { LoginserviceService } from 'src/app/Service/loginservice.service';
 import { SignupserviceService } from 'src/app/Service/signupservice.service';
+import { User } from 'src/app/User';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -17,7 +18,7 @@ constructor(private authervice:AuthService,private route:Router,public loginserv
  
 }
 
-loggedinuser:any
+loggedinuser:User={userName:"",id:0,role:""}
  isLoggedIn$:any
 ngOnInit(): void {
   this.isLoggedIn$=this.authervice.isloggendin();
@@ -26,9 +27,15 @@ ngOnInit(): void {
   
 }
 logggedIn(){
-  this.loggedinuser=localStorage.getItem("logged_in");
-  return this.loggedinuser
-  
+  var local=localStorage.getItem("logged_in") 
+  if(local!=null){
+   var user= JSON.parse(local)
+   this.loggedinuser =user;
+   return this.loggedinuser.userName
+  }else{
+    return false;
+  }
+   
 }
 showlogedin(){
  return this.route.events.subscribe((val)=>{

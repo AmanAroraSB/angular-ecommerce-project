@@ -20,19 +20,33 @@ console.log(data);
 return this.http.post(this.url+"Login",data,{responseType: 'text'});
 
 }
+deleteuser(id:number){
+return this.http.delete(this.url+`Delete/${id}`,{responseType:'text'});
+}
+getalluser(){
+  return this.http.post(this.url+"GetUser",null);
+}
 logoutuser(){
   localStorage.removeItem("logged_in");
 }
 settoken(token:string){
-localStorage.setItem("logged_in",token);
+localStorage.setItem("logged_in",JSON.stringify(token));
 }
 isloggendin(){
- var  user=localStorage.getItem("logged_in")
+  var local=localStorage.getItem("logged_in");
+  if(local!=null){
+
+    var  user=JSON.parse(local);
+  }
   if(user){
 
     return user;
   } else{
     return false;
   }
+}
+role(){
+  var user =localStorage.getItem("logged_in");
+
 }
 }

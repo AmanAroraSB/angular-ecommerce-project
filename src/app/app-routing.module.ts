@@ -11,6 +11,10 @@ import { ItemSingleComponent } from './MyComponets/item-single/item-single.compo
 import { AboutUsComponent } from './MyComponents/about-us/about-us.component';
 import { AddproductComponent } from './MyComponents/addproduct/addproduct.component';
 import { logGuard } from './Services/log.guard';
+import { AdminComponent } from './MyComponents/admin/admin.component';
+import { ListingComponent } from './MyComponents/listing/listing.component';
+import { EditComponent } from './MyComponents/edit/edit.component';
+import { UserlistingComponent } from './MyComponents/userlisting/userlisting.component';
 
 
 const routes: Routes = [
@@ -35,6 +39,19 @@ path:"bill",component:BillingDetailsComponent,canActivate:[authguardGuard]
   path:"Aboutus",component:AboutUsComponent
 },{
   path:"AddItem",component:AddproductComponent
+},{
+  path:"Admin",component:AdminComponent,children:[{
+path:"add",component:AddproductComponent
+  },{
+    path:"list",component:ListingComponent
+  },{
+    path:"Edit/:id",component:EditComponent
+  },{
+
+    path:"userlist",component:UserlistingComponent
+  },{
+    path:"**",component:ListingComponent
+  },],canActivate:[authguardGuard]
 }
 ,{
   path:"**",component:PagenotfoundComponent

@@ -23,6 +23,11 @@ import { SearchfilterPipe } from './searchfilter.pipe';
 import { ProductsService } from './Services/products.service';
 import { AddproductComponent } from './MyComponents/addproduct/addproduct.component';
 import jsPDF from 'jspdf';
+import { AdminComponent } from './MyComponents/admin/admin.component';
+import { ListingComponent } from './MyComponents/listing/listing.component';
+import { EditComponent } from './MyComponents/edit/edit.component';
+import { UserlistingComponent } from './MyComponents/userlisting/userlisting.component';
+import { UsersearchfilterPipe } from './Services/usersearchfilter.pipe';
 
 
 
@@ -41,6 +46,11 @@ import jsPDF from 'jspdf';
     AboutUsComponent,
     SearchfilterPipe,
     AddproductComponent,
+    AdminComponent,
+    ListingComponent,
+    EditComponent,
+    UserlistingComponent,
+    UsersearchfilterPipe,
 
 
     // AddtodoComponent

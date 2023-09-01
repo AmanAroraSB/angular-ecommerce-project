@@ -38,7 +38,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="price">Pricing</a>
+              <a class="nav-link" routerLink="Admin">Admin</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" *ngIf="logggedIn()" (click)="logout()"
@@ -47,7 +47,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" *ngIf="logggedIn()"
-                >Welcome! {{ loggedinuser }}</a
+                >Welcome! {{ loggedinuser.userName }}</a
               >
             </li>
           </ul>

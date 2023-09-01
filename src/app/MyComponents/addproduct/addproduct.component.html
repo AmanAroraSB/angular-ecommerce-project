@@ -1,4 +1,4 @@
-<form [formGroup]="foodForm" (ngSubmit)="onSubmit()" class="border my-3">
+<form [formGroup]="foodForm" (ngSubmit)="onSubmit($event)" class="border my-3">
   <label for="name">Name:</label>
   <input type="text" id="name" formControlName="name" required />
 
@@ -14,8 +14,14 @@
   <label for="description">Description:</label>
   <textarea id="description" formControlName="description"></textarea>
 
-  <label for="imageUrl">Image URL:</label>
-  <input type="text" id="imageUrl" formControlName="imageUrl" />
+  <label for="image">Image URL:</label>
+  <input
+    type="file"
+    id="images"
+    formControlName="images"
+    accept="image/*"
+    multiple
+  />
 
   <button type="submit" [disabled]="!foodForm.valid">Add Food Item</button>
 </form>
