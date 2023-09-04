@@ -28,6 +28,7 @@ import { ListingComponent } from './MyComponents/listing/listing.component';
 import { EditComponent } from './MyComponents/edit/edit.component';
 import { UserlistingComponent } from './MyComponents/userlisting/userlisting.component';
 import { UsersearchfilterPipe } from './Services/usersearchfilter.pipe';
+import { UserEditComponent } from './MyComponents/user-edit/user-edit.component';
 
 
 
@@ -51,6 +52,7 @@ import { UsersearchfilterPipe } from './Services/usersearchfilter.pipe';
     EditComponent,
     UserlistingComponent,
     UsersearchfilterPipe,
+    UserEditComponent,
 
 
     // AddtodoComponent

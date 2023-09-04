@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Checkout</h3>
+  <h3>Users List</h3>
   <label for="searchfilter">Search</label>
   <input type="text" [(ngModel)]="serarchValue" />
   <table class="table table-striped border">
@@ -15,8 +15,8 @@
     <tbody>
       <tr
         *ngFor="
-          let USer of user
-            | paginate : { itemsPerPage: 5, currentPage: currentPage };
+          let USer of user  
+          | usersearchfilter :serarchValue | paginate : { itemsPerPage: 5, currentPage: currentPage } ;
           let i = index
         "
       >

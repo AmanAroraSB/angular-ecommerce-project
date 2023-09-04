@@ -15,6 +15,8 @@ import { AdminComponent } from './MyComponents/admin/admin.component';
 import { ListingComponent } from './MyComponents/listing/listing.component';
 import { EditComponent } from './MyComponents/edit/edit.component';
 import { UserlistingComponent } from './MyComponents/userlisting/userlisting.component';
+import { roleguardGuard } from './Services/roleguard.guard';
+import { UserEditComponent } from './MyComponents/user-edit/user-edit.component';
 
 
 const routes: Routes = [
@@ -46,12 +48,12 @@ path:"add",component:AddproductComponent
     path:"list",component:ListingComponent
   },{
     path:"Edit/:id",component:EditComponent
-  },{
+  },{path:"UserEdit/:id",component:UserEditComponent},{
 
     path:"userlist",component:UserlistingComponent
   },{
     path:"**",component:ListingComponent
-  },],canActivate:[authguardGuard]
+  },],canActivate:[authguardGuard,roleguardGuard]
 }
 ,{
   path:"**",component:PagenotfoundComponent

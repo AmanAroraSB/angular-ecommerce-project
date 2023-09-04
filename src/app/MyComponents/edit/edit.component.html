@@ -1,28 +1,43 @@
 <form [formGroup]="foodForm" (ngSubmit)="onSubmit($event)" class="border my-3">
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name" required />
-  
-    <label for="type">Type:</label>
-    <input type="text" id="type" formControlName="type" required />
-  
-    <label for="price">Price:</label>
-    <input type="number" id="price" formControlName="price" required />
-  
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" formControlName="quantity" required />
-  
-    <label for="description">Description:</label>
-    <textarea id="description" formControlName="description"></textarea>
-  
-    <label for="image">Image URL:</label>
-    <input
-      type="file"
-      id="images"
-      formControlName="images"
-      accept="image/*"
-      multiple
-    />
-  
-    <button type="submit" [disabled]="!foodForm.valid">Add Food Item</button>
-  </form>
-  
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name" required />
+
+  <label for="type">Type:</label>
+  <input type="text" id="type" formControlName="type" required />
+
+  <label for="price">Price:</label>
+  <input type="number" id="price" formControlName="price" required />
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" formControlName="quantity" required />
+
+  <label for="description">Description:</label>
+  <textarea id="description" formControlName="description"></textarea>
+  <div class="col-md-12">
+    <!-- <img
+      *ngFor="let item of item.imageUrl"
+      src="{{ item }}"
+      style="width: 255px; height: 183px"
+    /> -->
+    <span
+      class="mx-1"
+      *ngFor="let image of url; let i = index"
+      style="width: 255px; height: 183px"
+    >
+      <input type="checkbox" for="images" style="display: inline-" />
+
+      <img src="{{ image }}" />
+    </span>
+  </div>
+  <label for="image">Image URL:</label>
+  <input
+    type="file"
+    id="images"
+    formControlName="images"
+    accept="image/*"
+    multiple
+    (change)="changeimage($event)"
+  />
+
+  <button type="submit" [disabled]="!foodForm.valid">Add Food Item</button>
+</form>

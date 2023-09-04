@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { User } from 'src/app/User';
 import * as alertifyjs from 'alertifyjs'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-userlisting',
@@ -13,7 +14,7 @@ export class UserlistingComponent {
   Item:any;
   user:User[]=[];
   currentPage=1;
-  constructor(private authservice:AuthService){
+  constructor(private authservice:AuthService,private router:Router){
 this.getuser();
   }
   getuser(){
@@ -26,7 +27,8 @@ this.getuser();
   }
   Edit(id:number){
     console.log(id);
-    
+
+    this.router.navigateByUrl(`/Admin/UserEdit/${id}`)
   }
   delete(id:number){
 console.log(id);

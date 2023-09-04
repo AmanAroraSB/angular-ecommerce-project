@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { User } from '../User';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ logoutuser(){
   localStorage.removeItem("logged_in");
 }
 settoken(token:string){
-localStorage.setItem("logged_in",JSON.stringify(token));
+localStorage.setItem("logged_in",token);
 }
 isloggendin(){
   var local=localStorage.getItem("logged_in");
@@ -47,6 +48,20 @@ isloggendin(){
 }
 role(){
   var user =localStorage.getItem("logged_in");
-
+  if(user!=null){
+    var logged_inuser:User=JSON.parse(user);
+    if(logged_inuser.role=="Admin"){
+   
+      return logged_inuser
+      
+    }else{
+      return false
+    }
+  }else{
+    return false;
+  }
+}
+getuserbyid(id:string) {
+  return this.http.post(this.url+`GetUserById/${id}`,null) 
 }
 }

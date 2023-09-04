@@ -1,5 +1,6 @@
-<form [formGroup]="foodForm" (ngSubmit)="onSubmit($event)" class="border my-3">
-  <label for="name">Name:</label>
+<h1>Add Product</h1>
+<form [formGroup]="foodForm" (ngSubmit)="onSubmit($event)" class="border my-6">
+  <label for="name" class="my-2">Name:</label>
   <input type="text" id="name" formControlName="name" required />
 
   <label for="type">Type:</label>

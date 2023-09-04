@@ -29,8 +29,15 @@ this.router.navigateByUrl(`Admin/Edit/${id}`)
       this.Item=result;
     })
   }
+  confirmdelete(id:number){
+    alertifyjs.confirm('','Are you Sure you want to Delete', ()=>{ this.delete(id)},function(){
+      alertifyjs.set('notifier','position', 'top-right');
+      alertifyjs.error('Delete Canceled');
+      
+    });
+  }
   delete(id:number){
-    console.log("delete",id);
+   
     this.producservice.Delete(id).subscribe(result=>{
       if(result=="success"){
         console.log("success");

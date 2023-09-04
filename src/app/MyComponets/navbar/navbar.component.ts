@@ -18,8 +18,10 @@ constructor(private authervice:AuthService,private route:Router,public loginserv
  
 }
 
-loggedinuser:User={userName:"",id:0,role:""}
+loggedinuser:any
  isLoggedIn$:any
+ user:User={id:1,userName:'',role:''}
+ username:string='';
 ngOnInit(): void {
   this.isLoggedIn$=this.authervice.isloggendin();
   console.log(this.isLoggedIn$);
@@ -27,15 +29,22 @@ ngOnInit(): void {
   
 }
 logggedIn(){
-  var local=localStorage.getItem("logged_in") 
-  if(local!=null){
-   var user= JSON.parse(local)
-   this.loggedinuser =user;
-   return this.loggedinuser.userName
-  }else{
-    return false;
+  const storedData = localStorage.getItem("logged_in");
+  
+  if (storedData) {
+ 
+    try {
+      this.loggedinuser = JSON.parse(storedData) as User;
+      this.user=JSON.parse(storedData) as User;
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+    }
+    this.username=this.user.userName;
+
+    
+  
+  return this.loggedinuser
   }
-   
 }
 showlogedin(){
  return this.route.events.subscribe((val)=>{
@@ -62,6 +71,7 @@ logout(){
   alertifyjs.set('notifier','position', 'top-right');
   alertifyjs.success("logout succefully")
 this.route.navigateByUrl("");
+localStorage.removeItem("key")
   console.log("logout");
  
 }
@@ -76,5 +86,13 @@ if(this.route.url=="/"||this.route.url=="/Login"){
 }
 onsignup(){
 
+}
+isadmin(){
+ var role=this.authervice.role();
+ if(role){
+  return role
+ }else{
+  return false;
+ }
 }
 }

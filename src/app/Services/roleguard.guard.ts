@@ -4,6 +4,11 @@ import { AuthService } from './auth.service';
 
 export const roleguardGuard: CanActivateFn = (route, state) => {
   const service = inject(AuthService)
-  
-  return true;
+  var role=service.role()
+ if(role){
+
+   return true;
+ }else{
+  return false;
+ }
 };

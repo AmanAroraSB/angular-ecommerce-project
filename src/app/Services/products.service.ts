@@ -30,5 +30,4 @@ AddProduct(item:Item
 Delete(id:number){
 return this.http.delete(this.url+`Delete/${id}`,{ responseType: 'text' })
 }
-
 }

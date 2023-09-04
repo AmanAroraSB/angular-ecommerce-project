@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Checkout</h3>
+  <h3>Product Listing</h3>
   <label for="searchfilter">Search</label>
   <input type="text" [(ngModel)]="serarchValue" />
   <table class="table table-striped border">
@@ -27,12 +27,12 @@
         <td>{{ item.name }}</td>
         <td>{{ item.price | currency }}</td>
         <td>{{ item.quantity }}</td>
-        <td>{{ item.price * item.quantity | number : "1.2-2" | currency }}</td>
+        <td>{{ item.price * item.quantity | currency }}</td>
         <td>
           <button class="btn btn-primary" (click)="Edit(item.id)">Edit</button>
         </td>
         <td>
-          <button class="btn btn-danger" (click)="delete(item.id)">
+          <button class="btn btn-danger" (click)="confirmdelete(item.id)">
             delete
           </button>
         </td>
