@@ -1,63 +1,66 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ItemsComponent } from './MyComponets/items/items.component';
-import { CartComponent } from './MyComponets/cart/cart.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { BillingDetailsComponent } from './MyComponets/billing-details/billing-details.component';
+import { ItemsComponent } from './MyComponents/items/items.component';
+import { CartComponent } from './MyComponents/cart/cart.component';
+import { PagenotfoundComponent } from './MyComponents/pagenotfound/pagenotfound.component';
+import { BillingDetailsComponent } from './MyComponents/billing-details/billing-details.component';
 import { SignUpFormComponent } from './MyComponents/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './MyComponents/login-form/login-form.component';
-import { authguardGuard } from './Services/authguard.guard';
-import { ItemSingleComponent } from './MyComponets/item-single/item-single.component';
+import { authguardGuard } from './Services/guard/authguard.guard';
+import { ItemSingleComponent } from './MyComponents/item-single/item-single.component';
 import { AboutUsComponent } from './MyComponents/about-us/about-us.component';
-import { AddproductComponent } from './MyComponents/addproduct/addproduct.component';
-import { logGuard } from './Services/log.guard';
+import { AddproductComponent } from './MyComponents/admin/addproduct/addproduct.component';
+import { logGuard } from './Services/guard/log.guard';
 import { AdminComponent } from './MyComponents/admin/admin.component';
-import { ListingComponent } from './MyComponents/listing/listing.component';
-import { EditComponent } from './MyComponents/edit/edit.component';
-import { UserlistingComponent } from './MyComponents/userlisting/userlisting.component';
-import { roleguardGuard } from './Services/roleguard.guard';
-import { UserEditComponent } from './MyComponents/user-edit/user-edit.component';
+import { ListingComponent } from './MyComponents/admin/listing/listing.component';
+import { EditComponent } from './MyComponents/admin/edit/edit.component';
+import { UserlistingComponent } from './MyComponents/admin/userlisting/userlisting.component';
+import { roleguardGuard } from './Services/guard/roleguard.guard';
+import { UserEditComponent } from './MyComponents/admin/user-edit/user-edit.component';
+import { OrderlistComponent } from './MyComponents/admin/orderlist/orderlist.component';
 
 
 const routes: Routes = [
-{  path:``, component:LoginFormComponent,canActivate:[logGuard]},{
-  path:"cart",component:CartComponent,canActivate:[authguardGuard]
-},
-{
-  path:"Home",component:ItemsComponent,canActivate:[authguardGuard]
-},{
-  path:"Home/:id", component:ItemSingleComponent
-}
-,
-{
-path:"bill",component:BillingDetailsComponent,canActivate:[authguardGuard]
-},
-{
-  path:"Singup",component:SignUpFormComponent
-},
-{
-  path:"Login",component:LoginFormComponent,canActivate:[logGuard]
-},{
-  path:"Aboutus",component:AboutUsComponent
-},{
-  path:"AddItem",component:AddproductComponent
-},{
-  path:"Admin",component:AdminComponent,children:[{
-path:"add",component:AddproductComponent
-  },{
-    path:"list",component:ListingComponent
-  },{
-    path:"Edit/:id",component:EditComponent
-  },{path:"UserEdit/:id",component:UserEditComponent},{
+  { path: ``, component: LoginFormComponent, canActivate: [logGuard] }, {
+    path: "cart", component: CartComponent, canActivate: [authguardGuard]
+  },
+  {
+    path: "Home", component: ItemsComponent, canActivate: [authguardGuard]
+  }, {
+    path: "Home/:id", component: ItemSingleComponent
+  }
+  ,
+  {
+    path: "bill", component: BillingDetailsComponent, canActivate: [authguardGuard]
+  },
+  {
+    path: "Singup", component: SignUpFormComponent
+  },
+  {
+    path: "Login", component: LoginFormComponent, canActivate: [logGuard]
+  }, {
+    path: "Aboutus", component: AboutUsComponent
+  }, {
+    path: "AddItem", component: AddproductComponent
+  }, {
+    path: "Admin", component: AdminComponent, children: [{
+      path: "add", component: AddproductComponent
+    }, {
+      path: "list", component: ListingComponent
+    }, {
+      path: "Edit/:id", component: EditComponent
+    }, { path: "UserEdit/:id", component: UserEditComponent }, {
 
-    path:"userlist",component:UserlistingComponent
-  },{
-    path:"**",component:ListingComponent
-  },],canActivate:[authguardGuard,roleguardGuard]
-}
-,{
-  path:"**",component:PagenotfoundComponent
-},
+      path: "userlist", component: UserlistingComponent
+    }, {
+      path: "orders", component: OrderlistComponent
+    }, {
+      path: "**", component: ListingComponent
+    },], canActivate: [authguardGuard, roleguardGuard]
+  }
+  , {
+    path: "**", component: PagenotfoundComponent
+  },
 ];
 
 @NgModule({

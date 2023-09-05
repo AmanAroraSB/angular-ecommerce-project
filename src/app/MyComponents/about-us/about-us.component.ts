@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginserviceService } from 'src/app/Service/loginservice.service';
-import { SignupserviceService } from 'src/app/Service/signupservice.service';
+import { LoginserviceService } from 'src/app/Services/loginservice.service';
+import { SignupserviceService } from 'src/app/Services/signupservice.service';
 
 @Component({
   selector: 'app-about-us',

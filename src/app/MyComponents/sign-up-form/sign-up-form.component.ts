@@ -2,8 +2,8 @@ import { Component  } from '@angular/core';
 import {AuthService} from '../../Services/auth.service'
 import{AbstractControl, FormControl,FormGroup,ValidationErrors,Validator, ValidatorFn, Validators}from '@angular/forms';
 import * as alertifyjs from 'alertifyjs';
-import { LoginserviceService } from 'src/app/Service/loginservice.service';
-import { SignupserviceService } from 'src/app/Service/signupservice.service';
+import { LoginserviceService } from 'src/app/Services/loginservice.service';
+import { SignupserviceService } from 'src/app/Services/signupservice.service';
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
