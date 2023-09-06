@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Item } from 'src/app/core/Model/Item';
-import { ProductsService } from 'src/app/Services/products.service';
-
+import { ProductsService } from '../Services/products.service';
+import alertify from 'alertifyjs'
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -37,13 +37,13 @@ export class AddproductComponent {
     }
 
     formData.append("ehhlo", "sdasd");
-    this.Producservice.upload(formData).subscribe(result => {
+    this.Producservice.uploadimagesItem(formData).subscribe(result => {
       console.log(result);
       const imageurl = result as string[];
       console.log(imageurl);
 
       // Code dependent on the image upload result
-      this.Producservice.create({
+      this.Producservice.AddProductItem({
         imageUrl: imageurl,
         Description: this.description,
         quantity: this.quantity,
@@ -52,6 +52,8 @@ export class AddproductComponent {
         name: this.name
       } as Item).subscribe(addResult => {
         console.log(addResult);
+        alertify.set('notifier', 'position', 'top-right');
+        alertify.success("Product Saved Succesfully");
         this.router.navigateByUrl("Admin/list")
         // Any further actions after adding the product
       });

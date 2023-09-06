@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginserviceService } from '../../Services/loginservice.service';
-import { SignupserviceService } from '../../Services/signupservice.service';
+import { LoginserviceService } from '../../Shared/Services/loginservice.service';
+import { SignupserviceService } from '../../Shared/Services/signupservice.service';
 
 @Component({
   selector: 'app-pagenotfound',

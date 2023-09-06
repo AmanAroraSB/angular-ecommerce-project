@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { obejct } from 'src/app/core/Model/object';
-import { ProductsService } from '../../Services/products.service'
+import { ProductsService } from '../admin/Services/products.service'
 import { Item } from 'src/app/core/Model/Item';
 
 @Component({
@@ -22,7 +22,7 @@ export class ItemsComponent {
       this.setcartitems = JSON.parse(get)
   }
   constructor(private produc: ProductsService) {
-    produc.get().subscribe(data => {
+    produc.getdataItem().subscribe(data => {
       this.items = data as Item[]
       console.log(data);
     })

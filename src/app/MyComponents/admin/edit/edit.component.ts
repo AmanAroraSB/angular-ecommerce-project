@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/core/Model/Item';
-import { ProductsService } from 'src/app/Services/products.service';
+import { ProductsService } from '../Services/products.service';
 
 @Component({
   selector: 'app-edit',
@@ -16,7 +16,7 @@ export class EditComponent implements OnInit {
   url: any[] = [];
 
   constructor(private fb: FormBuilder, private Producservice: ProductsService, private route: ActivatedRoute) {
-    this.Producservice.getById(this.id as unknown as number).subscribe(resultt => {
+    this.Producservice.getdataItembyid(this.id as unknown as number).subscribe(resultt => {
       console.log(resultt);
 
       this.item = resultt as Item;

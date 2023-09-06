@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginserviceService } from 'src/app/Services/loginservice.service';
-import { SignupserviceService } from 'src/app/Services/signupservice.service';
+import { LoginserviceService } from 'src/app/Shared/Services/loginservice.service';
+import { SignupserviceService } from 'src/app/Shared/Services/signupservice.service';
 
 @Component({
   selector: 'app-about-us',
@@ -8,8 +8,8 @@ import { SignupserviceService } from 'src/app/Services/signupservice.service';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent {
-constructor(private loginservice:LoginserviceService,private signupservice:SignupserviceService){
-  loginservice.Visible=true;
-  signupservice.Visible=true;
-}
+  constructor(private loginservice: LoginserviceService, private signupservice: SignupserviceService) {
+    loginservice.Visible = true;
+    signupservice.Visible = true;
+  }
 }

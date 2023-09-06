@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { OrderService } from 'src/app/Services/order.service';
+
 import { Orders } from 'src/app/core/Model/orders';
+import { ProductsService } from '../Services/products.service';
 
 @Component({
   selector: 'app-orderlist',
@@ -9,12 +10,12 @@ import { Orders } from 'src/app/core/Model/orders';
 })
 export class OrderlistComponent {
   orders: Orders[] = [];
-  constructor(private orderservice: OrderService) {
-    this.orderservice.getallorders().subscribe((result) => {
+  constructor(private orderservice: ProductsService) {
+    this.orderservice.getdataOrders().subscribe((result) => {
       console.log(result);
       this.orders = result as Orders[];
     })
     console.log(this.orders);
-    
+
   }
 }

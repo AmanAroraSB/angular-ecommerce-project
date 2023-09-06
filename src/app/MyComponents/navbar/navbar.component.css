@@ -1,38 +1,38 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
 
-  .border-bottom {
-    border-bottom: 1px solid #ccc;
-  }
+.border-bottom {
+  border-bottom: 1px solid #ccc;
+}
 
-  #navigation {
-    padding: 10px 0;
-  }
+#navigation {
+  padding: 10px 0;
+}
 
-  .navbar-brand {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
 
-  .navbar-toggler {
-    border: none;
-  }
+.navbar-toggler {
+  border: none;
+}
 
-  .navbar-nav {
-    margin-left: auto;
-  }
+.navbar-nav {
+  margin-left: auto;
+}
 
-  .navbar-nav .nav-link {
-    color: #333;
-  }
+.navbar-nav .nav-link {
+  color: #333;
+}
 
-  .navbar-nav .nav-link.active {
-    color: #007bff;
-  }
+.navbar-nav .nav-link.active {
+  color: #007bff;
+}
 
-  .shopping-cart {
-    font-size: 2rem;
-    color: #333;
-  }
+.shopping-cart {
+  font-size: 2rem;
+  color: #333;
+}

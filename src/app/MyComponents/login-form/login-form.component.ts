@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../Services/auth.service';
+import { AuthService } from '../../Shared/Services/auth.service';
 import { Router } from '@angular/router';
 import * as alertifyjs from 'alertifyjs';
-import { LoginserviceService } from 'src/app/Services/loginservice.service';
-import { SignupserviceService } from 'src/app/Services/signupservice.service';
+import { LoginserviceService } from '../../Shared/Services/loginservice.service';
+import { SignupserviceService } from '../../Shared/Services/signupservice.service';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',

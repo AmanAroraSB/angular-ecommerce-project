@@ -7,9 +7,9 @@ import { ResourceModel } from '../Model/Generic-resource-model'; // see: Part 3
 export abstract class ResourceService<T extends ResourceModel<T>> {
   constructor(
     private httpClient: HttpClient,
-    private tConstructor: { new (m: Partial<T>, ...args: unknown[]): T },
+    private tConstructor: { new(m: Partial<T>, ...args: unknown[]): T },
     protected apiUrl: string
-  ) {}
+  ) { }
 
   public create(resource: Partial<T> & { toJson: () => T }): Observable<T> {
     return this.httpClient

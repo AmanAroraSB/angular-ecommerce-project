@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../Services/products.service'
+import { ProductsService } from '../admin/Services/products.service'
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../../core/Model/Item'
 @Component({
@@ -18,7 +18,7 @@ export class ItemSingleComponent implements OnInit {
     console.log(this.id);
     console.log(this.id);
 
-    this.productservice.getById(this.id as unknown as number).subscribe(resultt => {
+    this.productservice.getdataItembyid(this.id as unknown as number).subscribe(resultt => {
       this.item = resultt as Item;
       console.log(this.item);
 

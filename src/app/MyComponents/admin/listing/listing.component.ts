@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Item } from 'src/app/core/Model/Item';
-import { ProductsService } from 'src/app/Services/products.service';
+import { ProductsService } from '../Services/products.service';
 import * as alertifyjs from 'alertifyjs';
 @Component({
   selector: 'app-listing',
@@ -25,7 +25,7 @@ export class ListingComponent implements OnInit {
 
   }
   getdata() {
-    this.producservice.get().subscribe(result => {
+    this.producservice.getdataItem().subscribe(result => {
       this.Item = result;
     })
   }
@@ -38,13 +38,13 @@ export class ListingComponent implements OnInit {
   }
   delete(id: number) {
 
-    this.producservice.delete(id).subscribe(result => {
-      // if (result == "success") {
-      //   console.log("success");
-      //   alertifyjs.set('notifier', 'position', 'top-right');
-      //   alertifyjs.success('Delete Successfull');
-      //   this.getdata();
-      // }
+    this.producservice.DeleteItem(id).subscribe(result => {
+      if (result == "success") {
+        console.log("success");
+        alertifyjs.set('notifier', 'position', 'top-right');
+        alertifyjs.success('Delete Successfull');
+        this.getdata();
+      }
 
     })
   }

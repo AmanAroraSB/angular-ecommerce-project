@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../Services/auth.service'
+import { AuthService } from '../../Shared/Services/auth.service'
 import { BehaviorSubject, Observable } from 'rxjs';
 import { NavigationEnd, Router } from '@angular/router'
 import * as alertifyjs from 'alertifyjs';
 
-import { LoginserviceService } from 'src/app/Services/loginservice.service';
-import { SignupserviceService } from 'src/app/Services/signupservice.service';
+import { LoginserviceService } from 'src/app/Shared/Services/loginservice.service';
+import { SignupserviceService } from 'src/app/Shared/Services/signupservice.service';
 import { User } from 'src/app/core/Model/User';
 @Component({
   selector: 'app-navbar',

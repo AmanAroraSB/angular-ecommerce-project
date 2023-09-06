@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/Services/auth.service';
+import { AuthService } from 'src/app/Shared/Services/auth.service';
 import { User } from 'src/app/core/Model/User';
 import * as alertifyjs from 'alertifyjs'
 import { Router } from '@angular/router';

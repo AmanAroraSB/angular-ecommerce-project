@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 
-import { LoginserviceService } from 'src/app/Services/loginservice.service';
-import { SignupserviceService } from 'src/app/Services/signupservice.service';
+import { LoginserviceService } from 'src/app/Shared/Services/loginservice.service';
+import { SignupserviceService } from 'src/app/Shared/Services/signupservice.service';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 //import 'jspdf-autotable/dist/jspdf.plugin.autotable.css';
 import { Item } from 'src/app/core/Model/Item';
 import { state } from '@angular/animations';
-import { ProductsService } from 'src/app/Services/products.service';
-import { OrderService } from 'src/app/Services/order.service';
+import { ProductsService } from '../admin/Services/products.service';
+
 import { Orders } from 'src/app/core/Model/orders';
 @Component({
   selector: 'app-billing-details',
@@ -18,7 +18,7 @@ import { Orders } from 'src/app/core/Model/orders';
 })
 export class BillingDetailsComponent {
   order: object = { name: "", userid: 0 };
-  constructor(private loginservice: LoginserviceService, private signupservice: SignupserviceService, private orderservice: OrderService) {
+  constructor(private loginservice: LoginserviceService, private signupservice: SignupserviceService, private orderservice: ProductsService) {
     loginservice.Visible = true;
     signupservice.Visible = true;
   }
@@ -86,7 +86,7 @@ export class BillingDetailsComponent {
       Name: `${this.firstname?.value} ${this.Lastname?.value}`,
       userid: parsedid, food_list: parseditem
     }
-    this.orderservice.addorder(object).subscribe((result) => {
+    this.orderservice.AdddataOrders(object).subscribe((result) => {
       console.log(result);
 
     })

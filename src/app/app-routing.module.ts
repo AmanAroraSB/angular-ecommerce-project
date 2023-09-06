@@ -6,16 +6,16 @@ import { PagenotfoundComponent } from './MyComponents/pagenotfound/pagenotfound.
 import { BillingDetailsComponent } from './MyComponents/billing-details/billing-details.component';
 import { SignUpFormComponent } from './MyComponents/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './MyComponents/login-form/login-form.component';
-import { authguardGuard } from './Services/guard/authguard.guard';
+import { authguardGuard } from './Shared/guard/authguard.guard';
 import { ItemSingleComponent } from './MyComponents/item-single/item-single.component';
 import { AboutUsComponent } from './MyComponents/about-us/about-us.component';
 import { AddproductComponent } from './MyComponents/admin/addproduct/addproduct.component';
-import { logGuard } from './Services/guard/log.guard';
+import { logGuard } from './Shared/guard/log.guard';
 import { AdminComponent } from './MyComponents/admin/admin.component';
 import { ListingComponent } from './MyComponents/admin/listing/listing.component';
 import { EditComponent } from './MyComponents/admin/edit/edit.component';
 import { UserlistingComponent } from './MyComponents/admin/userlisting/userlisting.component';
-import { roleguardGuard } from './Services/guard/roleguard.guard';
+import { roleguardGuard } from './Shared/guard/roleguard.guard';
 import { UserEditComponent } from './MyComponents/admin/user-edit/user-edit.component';
 import { OrderlistComponent } from './MyComponents/admin/orderlist/orderlist.component';
 
