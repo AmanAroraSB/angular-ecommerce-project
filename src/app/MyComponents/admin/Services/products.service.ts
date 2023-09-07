@@ -30,6 +30,9 @@ export class ProductsService {
   ) {
     return this.apiservice.post(`${this.url}Home/AddProduct`, item)
   }
+  EditProductItem(item:Item){
+    return this.apiservice.post(`${this.url}Home/EditProduct`,item)
+  }
   DeleteItem(id: number) {
     return this.apiservice.delete(`${this.url}Home/Delete/${id}`)
   }
@@ -41,5 +44,11 @@ export class ProductsService {
   }
   AdddataOrders(order: any) {
     return this.apiservice.post(`${this.url}Orders/Add`, order)
+  }
+  getorderbyorderid(order_id:number){
+    return this.apiservice.get(`${this.url}Orders/Getbyorderid/${order_id}`)
+  }
+  getorderbyuserid(userid:number){
+    return this.apiservice.get(`${this.url}Orders/Getbyuserid/${userid}`)
   }
 }

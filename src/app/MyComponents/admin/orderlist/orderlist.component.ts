@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { Orders } from 'src/app/core/Model/orders';
 import { ProductsService } from '../Services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orderlist',
@@ -9,8 +10,9 @@ import { ProductsService } from '../Services/products.service';
   styleUrls: ['./orderlist.component.css']
 })
 export class OrderlistComponent {
+
   orders: Orders[] = [];
-  constructor(private orderservice: ProductsService) {
+  constructor(private orderservice: ProductsService,private router:Router) {
     this.orderservice.getdataOrders().subscribe((result) => {
       console.log(result);
       this.orders = result as Orders[];
@@ -18,4 +20,7 @@ export class OrderlistComponent {
     console.log(this.orders);
 
   }
+  View(arg0: number) {
+    this.router.navigateByUrl(`/Admin/orderdetails/${arg0}`)
+    }
 }

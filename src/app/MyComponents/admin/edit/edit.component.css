@@ -13,10 +13,20 @@
   margin-bottom: 15px;
 }
 
+.fa {
+  cursor: pointer;
+  padding-right: 36px;
+}
+
 label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+img {
+  width: 336px;
+  height: 200px;
 }
 
 input[type="text"],

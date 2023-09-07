@@ -36,7 +36,7 @@ export class AddproductComponent {
       formData.append('Images[]', event.target.images.files[i] as File);
     }
 
-    formData.append("ehhlo", "sdasd");
+
     this.Producservice.uploadimagesItem(formData).subscribe(result => {
       console.log(result);
       const imageurl = result as string[];

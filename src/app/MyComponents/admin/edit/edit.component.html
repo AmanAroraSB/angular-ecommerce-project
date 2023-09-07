@@ -13,21 +13,24 @@
 
   <label for="description">Description:</label>
   <textarea id="description" formControlName="description"></textarea>
-  <div class="col-md-12">
+  <div class="row">
     <!-- <img
       *ngFor="let item of item.imageUrl"
       src="{{ item }}"
       style="width: 255px; height: 183px"
     /> -->
-    <span
-      class="mx-1"
-      *ngFor="let image of url; let i = index"
-      style="width: 255px; height: 183px"
-    >
-      <input type="checkbox" for="images" style="display: inline-" />
-
+    <div class="col-md-4" *ngFor="let image of url; let i = index">
+      <div style="text-align: right">
+        <i class="fa fa-cross text-danger" (click)="removeurl(image)">x</i>
+      </div>
       <img src="{{ image }}" />
-    </span>
+    </div>
+    <div class="col-md-4" *ngFor="let imagenew of newurl; let i = index">
+      <div style="text-align: right">
+        <i class="fa fa-cross text-danger" (click)="removenewimage(imagenew)">x</i>
+      </div>
+      <img src="{{ imagenew}}" style="width: auto" />
+    </div>
   </div>
   <label for="image">Image URL:</label>
   <input

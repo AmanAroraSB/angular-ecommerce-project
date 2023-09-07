@@ -30,6 +30,8 @@ import { UserlistingComponent } from './MyComponents/admin/userlisting/userlisti
 import { UsersearchfilterPipe } from './Shared/Pipes/usersearchfilter.pipe';
 import { UserEditComponent } from './MyComponents/admin/user-edit/user-edit.component';
 import { OrderlistComponent } from './MyComponents/admin/orderlist/orderlist.component';
+import { OrderdetailsComponent } from './MyComponents/orderdetails/orderdetails.component';
+import { OrderlistbyuserComponent } from './MyComponents/orderlistbyuser/orderlistbyuser.component';
 
 
 
@@ -55,6 +57,8 @@ import { OrderlistComponent } from './MyComponents/admin/orderlist/orderlist.com
     UsersearchfilterPipe,
     UserEditComponent,
     OrderlistComponent,
+    OrderdetailsComponent,
+    OrderlistbyuserComponent,
 
 
     // AddtodoComponent

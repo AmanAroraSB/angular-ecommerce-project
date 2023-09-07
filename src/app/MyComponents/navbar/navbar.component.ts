@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../Shared/Services/auth.service'
 import { BehaviorSubject, Observable } from 'rxjs';
-import { NavigationEnd, Router } from '@angular/router'
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import * as alertifyjs from 'alertifyjs';
 
 import { LoginserviceService } from 'src/app/Shared/Services/loginservice.service';
@@ -15,7 +15,7 @@ import { User } from 'src/app/core/Model/User';
 export class NavbarComponent implements OnInit {
   showlogin: boolean = true;
 
-  constructor(private authervice: AuthService, private route: Router, public loginservice: LoginserviceService, public signupservice: SignupserviceService) {
+  constructor(private authervice: AuthService, private route: Router, public loginservice: LoginserviceService, public signupservice: SignupserviceService, private activatedroute: ActivatedRoute) {
 
   }
 
@@ -99,5 +99,9 @@ export class NavbarComponent implements OnInit {
     } else {
       return false;
     }
+  }
+  isaboutus() {
+    console.log(this.activatedroute);
+    return "true";
   }
 }

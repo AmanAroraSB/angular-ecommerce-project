@@ -18,6 +18,8 @@ import { UserlistingComponent } from './MyComponents/admin/userlisting/userlisti
 import { roleguardGuard } from './Shared/guard/roleguard.guard';
 import { UserEditComponent } from './MyComponents/admin/user-edit/user-edit.component';
 import { OrderlistComponent } from './MyComponents/admin/orderlist/orderlist.component';
+import { OrderlistbyuserComponent } from './MyComponents/orderlistbyuser/orderlistbyuser.component';
+import { OrderdetailsComponent } from './MyComponents/orderdetails/orderdetails.component';
 
 
 const routes: Routes = [
@@ -37,11 +39,15 @@ const routes: Routes = [
     path: "Singup", component: SignUpFormComponent
   },
   {
-    path: "Login", component: LoginFormComponent, canActivate: [logGuard]
+    path: "Login", component: LoginFormComponent, canActivate: []
+  }, {
+    path: "orderdetails/:id", component: OrderdetailsComponent, canActivate: [logGuard]
   }, {
     path: "Aboutus", component: AboutUsComponent
   }, {
     path: "AddItem", component: AddproductComponent
+  }, {
+    path: "orders", component: OrderlistbyuserComponent, canActivate: [logGuard]
   }, {
     path: "Admin", component: AdminComponent, children: [{
       path: "add", component: AddproductComponent
@@ -54,7 +60,7 @@ const routes: Routes = [
       path: "userlist", component: UserlistingComponent
     }, {
       path: "orders", component: OrderlistComponent
-    }, {
+    }, { path: "orderdetails/:id", component: OrderdetailsComponent }, {
       path: "**", component: ListingComponent
     },], canActivate: [authguardGuard, roleguardGuard]
   }

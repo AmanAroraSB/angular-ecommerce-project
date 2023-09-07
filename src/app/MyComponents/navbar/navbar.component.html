@@ -22,7 +22,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" routerLink="/Aboutus"
+              <a class="nav-link" [ngClass]="isaboutus()" aria-current="page" routerLink="/Aboutus"
                 >About us</a
               >
             </li>
@@ -40,6 +40,11 @@
                 routerLink="Login"
                 *ngIf="loginservice.Visible && !logggedIn()"
                 >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a routerLink="orders" class="nav-link" *ngIf="logggedIn()"
+                >Orders</a
               >
             </li>
             <li class="nav-item">

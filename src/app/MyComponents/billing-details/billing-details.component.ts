@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 
 import { LoginserviceService } from 'src/app/Shared/Services/loginservice.service';
 import { SignupserviceService } from 'src/app/Shared/Services/signupservice.service';
+import alertifyjs from 'alertifyjs'
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 //import 'jspdf-autotable/dist/jspdf.plugin.autotable.css';
@@ -11,6 +12,7 @@ import { state } from '@angular/animations';
 import { ProductsService } from '../admin/Services/products.service';
 
 import { Orders } from 'src/app/core/Model/orders';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-billing-details',
   templateUrl: './billing-details.component.html',
@@ -18,7 +20,7 @@ import { Orders } from 'src/app/core/Model/orders';
 })
 export class BillingDetailsComponent {
   order: object = { name: "", userid: 0 };
-  constructor(private loginservice: LoginserviceService, private signupservice: SignupserviceService, private orderservice: ProductsService) {
+  constructor(private loginservice: LoginserviceService, private signupservice: SignupserviceService, private orderservice: ProductsService, private route: Router) {
     loginservice.Visible = true;
     signupservice.Visible = true;
   }
@@ -88,7 +90,9 @@ export class BillingDetailsComponent {
     }
     this.orderservice.AdddataOrders(object).subscribe((result) => {
       console.log(result);
-
+      alertifyjs.set('notifier', 'position', 'top-right');
+      alertifyjs.success('Your Order Have Been Placed');
+      this.route.navigateByUrl("/Home")
     })
 
     console.log(object);
