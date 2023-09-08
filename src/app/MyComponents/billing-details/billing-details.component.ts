@@ -75,7 +75,7 @@ export class BillingDetailsComponent {
       theme: 'grid', // Use 'grid' theme for footer styling
     });
 
-    doc.save('invoice.pdf');
+    //    doc.save('invoice.pdf');
 
     var id = localStorage.getItem("logged_in");
     if (id != null)
@@ -88,11 +88,11 @@ export class BillingDetailsComponent {
       Name: `${this.firstname?.value} ${this.Lastname?.value}`,
       userid: parsedid, food_list: parseditem
     }
-    this.orderservice.AdddataOrders(object).subscribe((result) => {
+    this.orderservice.MakePayment(object).subscribe((result) => {
       console.log(result);
       alertifyjs.set('notifier', 'position', 'top-right');
       alertifyjs.success('Your Order Have Been Placed');
-      this.route.navigateByUrl("/Home")
+      window.location.href = (result as string);
     })
 
     console.log(object);

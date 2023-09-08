@@ -101,7 +101,7 @@ export class NavbarComponent implements OnInit {
     }
   }
   isaboutus() {
-    console.log(this.activatedroute);
+    // console.log(this.activatedroute);
     return "true";
   }
 }

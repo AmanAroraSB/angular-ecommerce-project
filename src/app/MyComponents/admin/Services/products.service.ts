@@ -5,6 +5,7 @@ import { Item } from '../../../core/Model/Item';
 import { ResourceService } from '../../../core/Services/resource-service';
 import { ApiService } from 'src/app/core/Services/api.service';
 import { environment } from 'src/app/environments/environment';
+import { Orders } from 'src/app/core/Model/orders';
 @Injectable({
   providedIn: 'root'
 })
@@ -50,5 +51,8 @@ export class ProductsService {
   }
   getorderbyuserid(userid:number){
     return this.apiservice.get(`${this.url}Orders/Getbyuserid/${userid}`)
+  }
+  MakePayment(food:any){
+    return this.apiservice.post(`${this.url}Payment/Payment`,food)
   }
 }

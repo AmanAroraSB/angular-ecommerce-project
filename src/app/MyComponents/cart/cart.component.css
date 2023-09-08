@@ -39,3 +39,10 @@ h3 {
 .but:hover {
   background-color: #0056b3;
 }
+
+.emptycart {
+  display: flex;
+  height: 75vh;
+  justify-content: center;
+  flex-wrap: nowrap;
+}

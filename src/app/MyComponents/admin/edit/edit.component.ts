@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/core/Model/Item';
 import { ProductsService } from '../Services/products.service';
-import { alertify } from 'alertifyjs'
+import { alertify } from 'alertifyjs';
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
+
+
 export class EditComponent implements OnInit {
   foodForm: FormGroup;
   id: string | null = this.route.snapshot.paramMap.get('id');
   item: any;
   url: any[] = [];
   newurl: any[] = [];
+  @ViewChild('fileUploader')
+  fileUploader!: ElementRef;
 
   constructor(private fb: FormBuilder, private Producservice: ProductsService, private route: ActivatedRoute, private router: Router) {
     this.Producservice.getdataItembyid(this.id as unknown as number).subscribe(resultt => {
@@ -75,31 +80,43 @@ export class EditComponent implements OnInit {
         files.push(event.target.images.files[i]);
         formData.append('Images[]', event.target.images.files[i] as File);
       }
-      this.Producservice.uploadimagesItem(formData).subscribe(result => {
+      // this.Producservice.uploadimagesItem(formData).subscribe(result => {
+      //   console.log(result);
+      //   const imageurl = result as string[];
+      //   imageurl.forEach(Element => {
+      //     this.url.push(Element);
+      //   })
+      //   console.log(imageurl);
+
+      //   // Code dependent on the image upload result
+      //   this.Producservice.EditProductItem({
+      //     imageUrl: this.url,
+      //     Description: this.description,
+      //     quantity: this.quantity,
+      //     price: this.price,
+      //     type: this.type,
+      //     name: this.name
+      //   } as Item).subscribe(editResult => {
+      //     console.log(editResult);
+      //     alertify.set('notifier', 'position', 'top-right');
+      //     alertify.success("Product Saved Succesfully");
+      //     this.router.navigateByUrl("Admin/list")
+      //     // Any further actions after adding the product
+      //   });
+      // });
+      this.Producservice.EditProductItem({
+        imageUrl: this.url,
+        Description: this.description,
+        quantity: this.quantity,
+        price: this.price,
+        type: this.type,
+        name: this.name
+      } as Item).subscribe(result => {
         console.log(result);
-        const imageurl = result as string[];
-        imageurl.forEach(Element => {
-          this.url.push(Element);
-        })
-        console.log(imageurl);
-
-        // Code dependent on the image upload result
-        this.Producservice.EditProductItem({
-          imageUrl: this.url,
-          Description: this.description,
-          quantity: this.quantity,
-          price: this.price,
-          type: this.type,
-          name: this.name
-        } as Item).subscribe(editResult => {
-          console.log(editResult);
-          alertify.set('notifier', 'position', 'top-right');
-          alertify.success("Product Saved Succesfully");
-          this.router.navigateByUrl("Admin/list")
-          // Any further actions after adding the product
-        });
+        alertify.set('notifier', 'position', 'top-right');
+        alertify.success("Product Edit Succesfully");
+        this.router.navigateByUrl("Admin/list")
       });
-
     }
     else {
       this.Producservice.EditProductItem({
@@ -112,7 +129,7 @@ export class EditComponent implements OnInit {
       } as Item).subscribe(editResult => {
         console.log(editResult);
         alertify.set('notifier', 'position', 'top-right');
-        alertify.success("Product Saved Succesfully");
+        alertify.success("Product Edit Succesfully");
         this.router.navigateByUrl("Admin/list")
         // Any further actions after adding the product
       });
@@ -137,11 +154,6 @@ export class EditComponent implements OnInit {
 
 
 
-        // console.log(even.target.result);
-        console.log(this.url);
-
-
-
 
       }
       //const length= event.target.images.files.length
@@ -161,6 +173,10 @@ export class EditComponent implements OnInit {
     var index = this.newurl.indexOf(image)
     console.log(index);
     this.newurl.splice(index, 1)
+    console.log(this.newurl);
+
+
+
 
   }
 }
