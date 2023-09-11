@@ -8,7 +8,7 @@ export class UsersearchfilterPipe implements PipeTransform {
 
   transform(items: User[], searchvalue: string) {
     if (!searchvalue || !items) {
-      console.log("if");
+
 
       return items
     }

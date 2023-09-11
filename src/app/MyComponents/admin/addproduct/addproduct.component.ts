@@ -26,21 +26,21 @@ export class AddproductComponent {
     var files: Blob[] = [];
     var product: Item;
     var imageurl: string[] = []
-    console.log(event.target.images.files.length);
+
     const length = event.target.images.files.length;
     const formData = new FormData(); // Correct the casing here
 
     for (var i = 0; i < length; i++) {
-      console.log(i);
+     ;
       files.push(event.target.images.files[i]);
       formData.append('Images[]', event.target.images.files[i] as File);
     }
 
 
     this.Producservice.uploadimagesItem(formData).subscribe(result => {
-      console.log(result);
+      
       const imageurl = result as string[];
-      console.log(imageurl);
+      
 
       // Code dependent on the image upload result
       this.Producservice.AddProductItem({
@@ -51,7 +51,7 @@ export class AddproductComponent {
         type: this.type,
         name: this.name
       } as Item).subscribe(addResult => {
-        console.log(addResult);
+        
         alertify.set('notifier', 'position', 'top-right');
         alertify.success("Product Saved Succesfully");
         this.router.navigateByUrl("Admin/list")

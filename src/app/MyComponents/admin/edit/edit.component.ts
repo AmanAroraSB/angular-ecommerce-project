@@ -69,14 +69,14 @@ export class EditComponent implements OnInit {
   }
   onSubmit(event: any) {
 
-    console.log(event.target.images.files);
+ 
     const formData = new FormData();
     var files: Blob[] = [];
 
     const length = event.target.images.files.length;
     if (length > 0) {
       for (var i = 0; i < length; i++) {
-        console.log(i);
+
         files.push(event.target.images.files[i]);
         formData.append('Images[]', event.target.images.files[i] as File);
       }
@@ -112,7 +112,7 @@ export class EditComponent implements OnInit {
         type: this.type,
         name: this.name
       } as Item).subscribe(result => {
-        console.log(result);
+       
         alertify.set('notifier', 'position', 'top-right');
         alertify.success("Product Edit Succesfully");
         this.router.navigateByUrl("Admin/list")
@@ -127,7 +127,7 @@ export class EditComponent implements OnInit {
         type: this.type,
         name: this.name
       } as Item).subscribe(editResult => {
-        console.log(editResult);
+        
         alertify.set('notifier', 'position', 'top-right');
         alertify.success("Product Edit Succesfully");
         this.router.navigateByUrl("Admin/list")
@@ -139,7 +139,7 @@ export class EditComponent implements OnInit {
   }
   changeimage(event: any) {
     if (event.target != null) {
-      console.log(event);
+      
 
       const length = event.target.files.length;
       for (var i = 0; i < length; i++) {
@@ -147,7 +147,7 @@ export class EditComponent implements OnInit {
         reader.readAsDataURL(event.target.form[5].files[i]);
         reader.onload = (even: any) => {
           this.newurl.push(even.target.result);
-          console.log(this.url);
+          
         }
 
 
@@ -166,14 +166,14 @@ export class EditComponent implements OnInit {
     var index = this.url.indexOf(image)
     this.url.splice(index, 1);
 
-    console.log(this.url);
+    
 
   }
   removenewimage(image: any) {
     var index = this.newurl.indexOf(image)
-    console.log(index);
+    
     this.newurl.splice(index, 1)
-    console.log(this.newurl);
+    
 
 
 

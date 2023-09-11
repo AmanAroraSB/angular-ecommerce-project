@@ -32,6 +32,8 @@ import { UserEditComponent } from './MyComponents/admin/user-edit/user-edit.comp
 import { OrderlistComponent } from './MyComponents/admin/orderlist/orderlist.component';
 import { OrderdetailsComponent } from './MyComponents/orderdetails/orderdetails.component';
 import { OrderlistbyuserComponent } from './MyComponents/orderlistbyuser/orderlistbyuser.component';
+import { SuccessComponent } from './MyComponents/success/success.component';
+import { SomethingWentWrongComponent } from './MyComponents/something-went-wrong/something-went-wrong.component';
 
 
 
@@ -59,6 +61,8 @@ import { OrderlistbyuserComponent } from './MyComponents/orderlistbyuser/orderli
     OrderlistComponent,
     OrderdetailsComponent,
     OrderlistbyuserComponent,
+    SuccessComponent,
+    SomethingWentWrongComponent,
 
 
     // AddtodoComponent

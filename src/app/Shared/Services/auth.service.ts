@@ -12,12 +12,12 @@ export class AuthService {
   url = "https://localhost:7231/api/Account/";
   constructor(private http: HttpClient) { }
   CreateUser(data: object) {
-    console.log(data);
+    
 
     return this.http.post(this.url + "CreateUser", data, { responseType: 'text' });
   }
   loginuser(data: object) {
-    console.log(data);
+   
     return this.http.post(this.url + "Login", data, { responseType: 'text' });
 
   }

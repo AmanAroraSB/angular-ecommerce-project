@@ -19,24 +19,32 @@ export class UserlistingComponent {
   }
   getuser() {
     this.authservice.getalluser().subscribe(result => {
-      console.log(result);
+
 
       this.user = result as User[];
 
     });
   }
   Edit(id: number) {
-    console.log(id);
+
 
     this.router.navigateByUrl(`/Admin/UserEdit/${id}`)
   }
+
   delete(id: number) {
-    console.log(id);
+
     this.authservice.deleteuser(id).subscribe(result => {
       alertifyjs.set('notifier', 'position', 'top-right');
       alertifyjs.success(result);
       this.getuser();
     })
 
+  }
+  confirmdelete(id: number) {
+    alertifyjs.confirm('', 'Are you sure you want to Delete', () => { this.delete(id) }, function () {
+      alertifyjs.set('notifier', 'position', 'top-right');
+      alertifyjs.error('Delete Canceled');
+
+    })
   }
 }

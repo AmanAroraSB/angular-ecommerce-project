@@ -15,12 +15,11 @@ export class ItemSingleComponent implements OnInit {
   id: string | null = this.route.snapshot.paramMap.get('id');
 
   ngOnInit(): void {
-    console.log(this.id);
-    console.log(this.id);
+    
 
     this.productservice.getdataItembyid(this.id as unknown as number).subscribe(resultt => {
       this.item = resultt as Item;
-      console.log(this.item);
+
 
     })
 
@@ -30,10 +29,10 @@ export class ItemSingleComponent implements OnInit {
     // console.log("clicked");
 
     var cartitems = localStorage.getItem("key");
-    console.log(cartitems);
+   
 
     if (cartitems != null && cartitems != "[]") {
-      console.log("inside");
+   
 
       // console.log(typeof cartitems);
       let found = false;
@@ -58,7 +57,7 @@ export class ItemSingleComponent implements OnInit {
 
           this.setcartitems.push(element);
         });
-        console.log("found false");
+       
 
         this.total = 0;
         this.setcartitems.push(item);
@@ -67,7 +66,7 @@ export class ItemSingleComponent implements OnInit {
         });
         let addelemant = JSON.stringify(this.setcartitems);
         localStorage.setItem("key", addelemant);
-        //console.log(this.setcartitems);
+     
 
       } else {
         this.total = 0;
@@ -80,8 +79,7 @@ export class ItemSingleComponent implements OnInit {
       }
       console.log(parsed);
 
-      //  console.log(item);
-      //  console.log(cartitems);
+
 
 
     } else {

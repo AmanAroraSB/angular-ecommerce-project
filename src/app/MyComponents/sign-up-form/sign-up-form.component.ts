@@ -26,7 +26,7 @@ export class SignUpFormComponent {
   }, { validators: [confirmPasswordValidator] });
 
   usersignup() {
-    console.log(this.signup.value);
+    
     this.Authservice.CreateUser({ UserName: this.Username?.value, Password: this.password?.value, }).subscribe((result) => {
       alertifyjs.set('notifier', 'position', 'top-right');
       alertifyjs.success(result);

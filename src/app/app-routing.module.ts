@@ -20,6 +20,8 @@ import { UserEditComponent } from './MyComponents/admin/user-edit/user-edit.comp
 import { OrderlistComponent } from './MyComponents/admin/orderlist/orderlist.component';
 import { OrderlistbyuserComponent } from './MyComponents/orderlistbyuser/orderlistbyuser.component';
 import { OrderdetailsComponent } from './MyComponents/orderdetails/orderdetails.component';
+import { SuccessComponent } from './MyComponents/success/success.component';
+import { SomethingWentWrongComponent } from './MyComponents/something-went-wrong/something-went-wrong.component';
 
 
 const routes: Routes = [
@@ -31,12 +33,16 @@ const routes: Routes = [
   }, {
     path: "Home/:id", component: ItemSingleComponent
   }
-  ,
+  , {
+    path: "success", component: SuccessComponent, pathMatch: 'full', canActivate: [authguardGuard]
+  },
   {
     path: "bill", component: BillingDetailsComponent, canActivate: [authguardGuard]
   },
   {
     path: "Singup", component: SignUpFormComponent
+  },{
+    path:"Something",component:SomethingWentWrongComponent
   },
   {
     path: "Login", component: LoginFormComponent, canActivate: []

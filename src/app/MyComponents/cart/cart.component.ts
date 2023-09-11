@@ -25,7 +25,7 @@ export class CartComponent {
         }
       }
     }
-    //console.log(this.items);
+
   }
 
 

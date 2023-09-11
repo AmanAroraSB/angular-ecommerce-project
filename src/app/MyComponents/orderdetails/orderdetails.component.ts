@@ -17,13 +17,13 @@ export class OrderdetailsComponent {
   constructor(private orderservice: ProductsService,private route:ActivatedRoute) {
   
     this.orderservice.getorderbyorderid(this.id as unknown as number).subscribe((result) => {
-      console.log(result);
+      
       this.orders = result as Item[];
       this.orders.forEach(el => {
         this.totalsum += el.price * el.quantity;
       })
     })
-    console.log(this.orders);
+    
 
   }
   View(arg0: number) {

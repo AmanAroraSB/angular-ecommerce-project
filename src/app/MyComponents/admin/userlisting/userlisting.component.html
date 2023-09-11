@@ -15,8 +15,9 @@
     <tbody>
       <tr
         *ngFor="
-          let USer of user  
-          | usersearchfilter :serarchValue | paginate : { itemsPerPage: 5, currentPage: currentPage } ;
+          let USer of user
+            | usersearchfilter : serarchValue
+            | paginate : { itemsPerPage: 5, currentPage: currentPage };
           let i = index
         "
       >
@@ -27,7 +28,7 @@
           <button class="btn btn-primary" (click)="Edit(USer.id)">Edit</button>
         </td>
         <td>
-          <button class="btn btn-danger" (click)="delete(USer.id)">
+          <button class="btn btn-danger" (click)="confirmdelete(USer.id)">
             delete
           </button>
         </td>

@@ -38,8 +38,7 @@ export class BillingDetailsComponent {
 
   });
   billdetailssubmit() {
-    console.log(this.billingdetails);
-    console.log(this.billingdetails.value);
+  
     const json = localStorage.getItem('key');
     const parsed: Item[] = json ? JSON.parse(json) : [];
 
@@ -83,19 +82,19 @@ export class BillingDetailsComponent {
     var item = localStorage.getItem("key");
     if (item != null)
       var parseditem = JSON.parse(item);
-    console.log(parsedid);
+  
     var object = {
       Name: `${this.firstname?.value} ${this.Lastname?.value}`,
       userid: parsedid, food_list: parseditem
     }
     this.orderservice.MakePayment(object).subscribe((result) => {
-      console.log(result);
+    
       alertifyjs.set('notifier', 'position', 'top-right');
       alertifyjs.success('Your Order Have Been Placed');
       window.location.href = (result as string);
     })
 
-    console.log(object);
+ 
 
   }
 

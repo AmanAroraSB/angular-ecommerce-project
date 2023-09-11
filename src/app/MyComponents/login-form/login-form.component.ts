@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit {
   userlogin() {
     this.Authservice.loginuser({ UserName: this.Username?.value, Password: this.password?.value }).subscribe(result => {
       if (result == "false") {
-        console.log(result);
+    
         // alertifyjs.set('notifier','position', 'top-center');
         alertifyjs.set('notifier', 'position', 'top-right');
         alertifyjs.error('Username or Password is incorrect')

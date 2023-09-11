@@ -8,7 +8,6 @@ export class SearchfilterPipe implements PipeTransform {
 
   transform(items: Item[], searchvalue: string): Item[] {
     if (!searchvalue || !items) {
-      console.log("if");
 
       return items
     }

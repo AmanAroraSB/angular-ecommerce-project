@@ -18,7 +18,7 @@ export class ProductsService {
   constructor(private apiservice: ApiService, private http: HttpClient) { }
   getdataItem(): Observable<any> {
 
-    console.log(this.url);
+ 
 
     return this.apiservice.get(`${this.url}Home/Getdata`);
   }

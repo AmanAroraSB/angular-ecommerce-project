@@ -18,9 +18,7 @@ export class UserEditComponent implements OnInit {
       this.authservice.getuserbyid(this.id).subscribe((result: any) => {
         this.username = result.userName;
         this.role = result.role;
-        console.log(result);
-        console.log(this.username);
-        console.log(this.role);
+  
 
 
       })

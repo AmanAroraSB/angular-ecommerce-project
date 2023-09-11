@@ -17,10 +17,10 @@ export class OrderlistbyuserComponent {
       var object = JSON.parse(json);
     var id = object.id;
     this.orderservice.getorderbyuserid(id).subscribe((result) => {
-      console.log(result);
+    
       this.orders = result as Orders[];
     })
-    console.log(this.orders);
+  
 
   }
   View(arg0: number) {

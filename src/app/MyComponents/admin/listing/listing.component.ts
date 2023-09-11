@@ -20,7 +20,7 @@ export class ListingComponent implements OnInit {
 
   }
   Edit(id: number) {
-    console.log("edit", id);
+
     this.router.navigateByUrl(`Admin/Edit/${id}`)
 
   }
@@ -40,7 +40,7 @@ export class ListingComponent implements OnInit {
 
     this.producservice.DeleteItem(id).subscribe(result => {
       if (result == "success") {
-        console.log("success");
+      
         alertifyjs.set('notifier', 'position', 'top-right');
         alertifyjs.success('Delete Successfull');
         this.getdata();

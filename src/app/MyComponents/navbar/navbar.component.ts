@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   username: string = '';
   ngOnInit(): void {
     this.isLoggedIn$ = this.authervice.isloggendin();
-    console.log(this.isLoggedIn$);
+ 
 
 
   }
@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
         this.loggedinuser = JSON.parse(storedData) as User;
         this.user = JSON.parse(storedData) as User;
       } catch (error) {
-        console.error("Error parsing JSON:", error);
+     
       }
       this.username = this.user.userName;
 
@@ -54,16 +54,15 @@ export class NavbarComponent implements OnInit {
   showlogedin() {
     return this.route.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        console.log(val.url);
+     
         if (val.url == "/" || val.url == "/Login" || val.url == "/Home") {
-          console.log("inside");
-
+    
           return this.showlogin = false;
 
 
 
         } else {
-          console.log("out");
+         
           return this.showlogin = true;
 
         }
@@ -77,11 +76,11 @@ export class NavbarComponent implements OnInit {
     alertifyjs.success("logout succefully")
     this.route.navigateByUrl("");
     localStorage.removeItem("key")
-    console.log("logout");
+   
 
   }
   onlogin() {
-    console.log(this.route.url);
+  
 
     if (this.route.url == "/" || this.route.url == "/Login") {
       return false
