@@ -27,9 +27,11 @@
     </div>
     <div class="col-md-4" *ngFor="let imagenew of newurl; let i = index">
       <div style="text-align: right">
-        <i class="fa fa-cross text-danger" (click)="removenewimage(imagenew)">x</i>
+        <i class="fa fa-cross text-danger" (click)="removenewimage(imagenew)"
+          >x</i
+        >
       </div>
-      <img src="{{ imagenew}}" style="width: auto" />
+      <img src="{{ imagenew }}" style="width: auto" />
     </div>
   </div>
   <label for="image">Image URL:</label>
@@ -43,5 +45,5 @@
     (change)="changeimage($event)"
   />
 
-  <button type="submit" [disabled]="!foodForm.valid">Add Food Item</button>
+  <button type="submit" [disabled]="!foodForm.valid">Edit Food Item</button>
 </form>

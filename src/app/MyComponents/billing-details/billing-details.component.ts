@@ -38,7 +38,7 @@ export class BillingDetailsComponent {
 
   });
   billdetailssubmit() {
-  
+
     const json = localStorage.getItem('key');
     const parsed: Item[] = json ? JSON.parse(json) : [];
 
@@ -56,7 +56,7 @@ export class BillingDetailsComponent {
     doc.text(invoiceTitle, 10, 10);
     doc.setFontSize(12);
     doc.text(`Date: ${date}`, 10, 18);
-    doc.setFont("")
+    // doc.setFont("")
     doc.text(['Name:' + this.firstname?.value + ' ' + this.Lastname?.value, 'Country:' + this.country?.value,], 60, 10)
     doc.text(['State:' + this.State?.value, 'City:' + this.City?.value], 150, 10)
     doc.text(['Address:' + this.Address?.value, "Pincode:" + this.Zip?.value], 20, 40)
@@ -82,19 +82,23 @@ export class BillingDetailsComponent {
     var item = localStorage.getItem("key");
     if (item != null)
       var parseditem = JSON.parse(item);
-  
+    var foodsum = 0;
+    parseditem.forEach((element: any) => {
+      foodsum += element.quantity * element.price
+    });
+
     var object = {
       Name: `${this.firstname?.value} ${this.Lastname?.value}`,
-      userid: parsedid, food_list: parseditem
+      userid: parsedid, food_list: parseditem, sum: foodsum
     }
     this.orderservice.MakePayment(object).subscribe((result) => {
-    
+
       alertifyjs.set('notifier', 'position', 'top-right');
       alertifyjs.success('Your Order Have Been Placed');
       window.location.href = (result as string);
     })
 
- 
+
 
   }
 

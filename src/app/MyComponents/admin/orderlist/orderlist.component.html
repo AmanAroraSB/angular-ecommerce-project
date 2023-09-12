@@ -12,7 +12,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of orders; let i = index">
+      <tr
+        *ngFor="
+          let item of orders
+            | paginate : { itemsPerPage: 5, currentPage: currentPage };
+          let i = index
+        "
+      >
         <td>{{ i + 1 }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.order_id }}</td>
@@ -27,7 +33,9 @@
       </tr>
     </tbody>
   </table>
-
+  <pagination-controls
+    (pageChange)="currentPage = $event"
+  ></pagination-controls>
   <!-- <button class="but" [disabled]="totalsum <= 0" routerLink="/bill">
       Pay {{ totalsum | currency }}
     </button> -->

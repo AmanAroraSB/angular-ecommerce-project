@@ -18,7 +18,7 @@ export class ProductsService {
   constructor(private apiservice: ApiService, private http: HttpClient) { }
   getdataItem(): Observable<any> {
 
- 
+
 
     return this.apiservice.get(`${this.url}Home/Getdata`);
   }
@@ -26,13 +26,15 @@ export class ProductsService {
     return this.apiservice.get(`${this.url}Home/GetById/${id}`);
   }
 
-
+  getorderdetailsbysessionid(id: string|null) {
+    return this.apiservice.get(`${this.url}Payment/GetDetails/${id}`)
+  }
   AddProductItem(item: Item
   ) {
     return this.apiservice.post(`${this.url}Home/AddProduct`, item)
   }
-  EditProductItem(item:Item){
-    return this.apiservice.post(`${this.url}Home/EditProduct`,item)
+  EditProductItem(item: Item) {
+    return this.apiservice.post(`${this.url}Home/EditProduct`, item)
   }
   DeleteItem(id: number) {
     return this.apiservice.delete(`${this.url}Home/Delete/${id}`)
@@ -46,13 +48,13 @@ export class ProductsService {
   AdddataOrders(order: any) {
     return this.apiservice.post(`${this.url}Orders/Add`, order)
   }
-  getorderbyorderid(order_id:number){
+  getorderbyorderid(order_id: number) {
     return this.apiservice.get(`${this.url}Orders/Getbyorderid/${order_id}`)
   }
-  getorderbyuserid(userid:number){
+  getorderbyuserid(userid: number) {
     return this.apiservice.get(`${this.url}Orders/Getbyuserid/${userid}`)
   }
-  MakePayment(food:any){
-    return this.apiservice.post(`${this.url}Payment/Payment`,food)
+  MakePayment(food: any) {
+    return this.apiservice.post(`${this.url}Payment/Payment`, food)
   }
 }

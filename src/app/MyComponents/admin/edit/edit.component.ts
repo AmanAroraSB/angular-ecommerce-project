@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/core/Model/Item';
 import { ProductsService } from '../Services/products.service';
-import { alertify } from 'alertifyjs';
+import * as alertify from 'alertifyjs'
 
 @Component({
   selector: 'app-edit',
@@ -14,7 +14,7 @@ import { alertify } from 'alertifyjs';
 
 export class EditComponent implements OnInit {
   foodForm: FormGroup;
-  id: string | null = this.route.snapshot.paramMap.get('id');
+  id: number | null = this.route.snapshot.paramMap.get('id') as unknown as number;
   item: any;
   url: any[] = [];
   newurl: any[] = [];
@@ -24,7 +24,7 @@ export class EditComponent implements OnInit {
   constructor(private fb: FormBuilder, private Producservice: ProductsService, private route: ActivatedRoute, private router: Router) {
     this.Producservice.getdataItembyid(this.id as unknown as number).subscribe(resultt => {
       console.log(resultt);
-
+      this.id = resultt.id;
       this.item = resultt as Item;
       console.log(this.item);
       this.foodForm = this.fb.group({
@@ -69,7 +69,7 @@ export class EditComponent implements OnInit {
   }
   onSubmit(event: any) {
 
- 
+
     const formData = new FormData();
     var files: Blob[] = [];
 
@@ -105,14 +105,15 @@ export class EditComponent implements OnInit {
       //   });
       // });
       this.Producservice.EditProductItem({
+        id: this.id as unknown as number,
         imageUrl: this.url,
         Description: this.description,
         quantity: this.quantity,
         price: this.price,
         type: this.type,
-        name: this.name
+        name: this.name,
       } as Item).subscribe(result => {
-       
+
         alertify.set('notifier', 'position', 'top-right');
         alertify.success("Product Edit Succesfully");
         this.router.navigateByUrl("Admin/list")
@@ -120,6 +121,7 @@ export class EditComponent implements OnInit {
     }
     else {
       this.Producservice.EditProductItem({
+        id: this.id as unknown as number,
         imageUrl: this.url,
         Description: this.description,
         quantity: this.quantity,
@@ -127,7 +129,7 @@ export class EditComponent implements OnInit {
         type: this.type,
         name: this.name
       } as Item).subscribe(editResult => {
-        
+
         alertify.set('notifier', 'position', 'top-right');
         alertify.success("Product Edit Succesfully");
         this.router.navigateByUrl("Admin/list")
@@ -139,7 +141,7 @@ export class EditComponent implements OnInit {
   }
   changeimage(event: any) {
     if (event.target != null) {
-      
+
 
       const length = event.target.files.length;
       for (var i = 0; i < length; i++) {
@@ -147,7 +149,7 @@ export class EditComponent implements OnInit {
         reader.readAsDataURL(event.target.form[5].files[i]);
         reader.onload = (even: any) => {
           this.newurl.push(even.target.result);
-          
+
         }
 
 
@@ -166,14 +168,14 @@ export class EditComponent implements OnInit {
     var index = this.url.indexOf(image)
     this.url.splice(index, 1);
 
-    
+
 
   }
   removenewimage(image: any) {
     var index = this.newurl.indexOf(image)
-    
+
     this.newurl.splice(index, 1)
-    
+
 
 
 

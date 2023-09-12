@@ -11,16 +11,17 @@ import { Route, Router } from '@angular/router';
 })
 export class OrderlistbyuserComponent {
   orders: Orders[] = [];
+  currentPage = 1;
   constructor(private orderservice: ProductsService, private router: Router) {
     var json = localStorage.getItem('logged_in');
     if (json != null)
       var object = JSON.parse(json);
     var id = object.id;
     this.orderservice.getorderbyuserid(id).subscribe((result) => {
-    
+
       this.orders = result as Orders[];
     })
-  
+
 
   }
   View(arg0: number) {

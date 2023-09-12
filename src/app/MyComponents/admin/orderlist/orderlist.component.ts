@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class OrderlistComponent {
 
   orders: Orders[] = [];
-  constructor(private orderservice: ProductsService,private router:Router) {
+  currentPage = 0;
+  constructor(private orderservice: ProductsService, private router: Router) {
     this.orderservice.getdataOrders().subscribe((result) => {
 
       this.orders = result as Orders[];
@@ -22,5 +23,5 @@ export class OrderlistComponent {
   }
   View(arg0: number) {
     this.router.navigateByUrl(`/Admin/orderdetails/${arg0}`)
-    }
+  }
 }

@@ -12,13 +12,14 @@ import alertify from 'alertifyjs'
 })
 export class SuccessComponent implements OnInit {
   id: string | null = null;
+  itemss = [];
   constructor(private route: ActivatedRoute, private apiservice: ProductsService, private router: Router) {
     this.route.queryParamMap.subscribe(param => {
       this.id = param.get('session_id');
     });
     console.log(this.id);
-
   }
+
   ngOnInit(): void {
     var user = localStorage.getItem("logged_in");
     var item = localStorage.getItem("key");
@@ -39,7 +40,14 @@ export class SuccessComponent implements OnInit {
         },
       }
       this.apiservice.AdddataOrders(order).subscribe(result => {
-        
+        localStorage.removeItem('key');
+        console.log(result);
+        this.apiservice.getorderdetailsbysessionid(this.id).subscribe(result => {
+          console.log(result);
+          item = result;
+          console.log(item);
+          
+        })
 
 
       }, error => {
