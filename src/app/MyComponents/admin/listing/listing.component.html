@@ -25,9 +25,9 @@
       >
         <td>{{ i + 1 }}</td>
         <td>{{ item.name }}</td>
-        <td>{{ item.price | currency }}</td>
+        <td>{{ item.price | currency:'INR' }}</td>
         <td>{{ item.quantity }}</td>
-        <td>{{ item.price * item.quantity | currency }}</td>
+        <td>{{ item.price * item.quantity | currency:'INR' }}</td>
         <td>
           <button class="btn btn-primary" (click)="Edit(item.id)">Edit</button>
         </td>

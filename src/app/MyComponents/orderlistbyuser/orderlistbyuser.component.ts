@@ -20,6 +20,7 @@ export class OrderlistbyuserComponent {
     this.orderservice.getorderbyuserid(id).subscribe((result) => {
 
       this.orders = result as Orders[];
+      console.log(this.orders)
     })
 
 

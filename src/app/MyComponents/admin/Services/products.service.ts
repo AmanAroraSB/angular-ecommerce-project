@@ -26,7 +26,7 @@ export class ProductsService {
     return this.apiservice.get(`${this.url}Home/GetById/${id}`);
   }
 
-  getorderdetailsbysessionid(id: string|null) {
+  getorderdetailsbysessionid(id: string | null) {
     return this.apiservice.get(`${this.url}Payment/GetDetails/${id}`)
   }
   AddProductItem(item: Item
@@ -56,5 +56,8 @@ export class ProductsService {
   }
   MakePayment(food: any) {
     return this.apiservice.post(`${this.url}Payment/Payment`, food)
+  }
+  addordersbysessionid(session_id: string, userid: number) {
+    return this.apiservice.get(`${this.url}Payment/AddOrders/${session_id}/${userid}`)
   }
 }

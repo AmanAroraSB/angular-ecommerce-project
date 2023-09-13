@@ -12,15 +12,55 @@ import alertify from 'alertifyjs'
 })
 export class SuccessComponent implements OnInit {
   id: string | null = null;
-  itemss = [];
-  constructor(private route: ActivatedRoute, private apiservice: ProductsService, private router: Router) {
+  itemss: any[] = [];
+  currentPage = 1;
+  sum = 0;
+
+  // constructor(private route: ActivatedRoute, private apiservice: ProductsService, private router: Router) {
+  //   
+  //   console.log(this.id);
+  //   var user = localStorage.getItem("logged_in");
+  //   var item = localStorage.getItem("key");
+  //   var userparse: User;
+
+  //   var itemparse: Item[];
+  //   var sum = 0;
+
+  //   if (user != null && item != null) {
+  //     userparse = JSON.parse(user);
+  //     itemparse = JSON.parse(item);
+  //     itemparse.forEach(element => {
+  //       sum += element.price * element.quantity;
+  //     });
+  //     var order: Orders = {
+  //       name: userparse.userName, order_id: 0, userid: userparse.id, food_list: itemparse, sum: sum, toJson() {
+
+  //       },
+  //     }
+  //     this.apiservice.AdddataOrders(order).subscribe(result => {
+  //       localStorage.removeItem('key');
+  //       console.log(result);
+  //       this.apiservice.getorderdetailsbysessionid(this.id).subscribe(result => {
+  //         console.log(result);
+  //         this.itemss = result;
+  //         console.log(this.itemss);
+
+  //       })
+
+
+  //     }, error => {
+  //       if (error) {
+  //         this.router.navigateByUrl("/Something");
+  //       }
+  //     })
+  //   }
+  // }
+  constructor(private apiservice: ProductsService, private route: ActivatedRoute) {
     this.route.queryParamMap.subscribe(param => {
       this.id = param.get('session_id');
     });
     console.log(this.id);
-  }
 
-  ngOnInit(): void {
     var user = localStorage.getItem("logged_in");
     var item = localStorage.getItem("key");
     var userparse: User;
@@ -33,28 +73,19 @@ export class SuccessComponent implements OnInit {
       itemparse = JSON.parse(item);
       itemparse.forEach(element => {
         sum += element.price * element.quantity;
-      });
-      var order: Orders = {
-        name: userparse.userName, order_id: 0, userid: userparse.id, food_list: itemparse, sum: sum, toJson() {
 
-        },
-      }
-      this.apiservice.AdddataOrders(order).subscribe(result => {
-        localStorage.removeItem('key');
-        console.log(result);
-        this.apiservice.getorderdetailsbysessionid(this.id).subscribe(result => {
+        this.apiservice.addordersbysessionid(this.id as unknown as string, userparse.id).subscribe(result => {
           console.log(result);
-          item = result;
-          console.log(item);
-          
-        })
+          localStorage.removeItem('key');
 
+        });
+      });
 
-      }, error => {
-        if (error) {
-          this.router.navigateByUrl("/Something");
-        }
-      })
     }
+
+  }
+
+  ngOnInit(): void {
+
   }
 }

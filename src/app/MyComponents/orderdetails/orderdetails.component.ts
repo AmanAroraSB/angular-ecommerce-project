@@ -12,18 +12,19 @@ export class OrderdetailsComponent {
   id: string | null = this.route.snapshot.paramMap.get('id');
   serarchValue: any = '';
   currentPage: number = 1;
-  orders: Item[] = [];
+  orders: any;
   totalsum: number = 0;
-  constructor(private orderservice: ProductsService,private route:ActivatedRoute) {
-  
+  constructor(private orderservice: ProductsService, private route: ActivatedRoute) {
+
     this.orderservice.getorderbyorderid(this.id as unknown as number).subscribe((result) => {
-      
-      this.orders = result as Item[];
-      this.orders.forEach(el => {
+      console.log(result);
+
+      this.orders = result as Orders;
+      this.orders.food_list.forEach((el: any) => {
         this.totalsum += el.price * el.quantity;
       })
     })
-    
+
 
   }
   View(arg0: number) {

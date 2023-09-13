@@ -6,6 +6,7 @@ export class Orders extends ResourceModel<Orders>{
     public order_id!: number;
     public userid!: number;
     public food_list!: Item[];
-    public sum!:number;
+    public sum!: number;
+    public Transaction_Intent_ID!: string;
 
 }

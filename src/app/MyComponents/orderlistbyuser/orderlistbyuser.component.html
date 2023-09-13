@@ -23,7 +23,7 @@
         <td>{{ item.name }}</td>
         <td>{{ item.order_id }}</td>
         <td>{{ item.userid }}</td>
-        <td>{{ item.sum | currency }}</td>
+        <td>{{ item.sum | currency:'INR' }}</td>
 
         <td>
           <button class="btn btn-primary" (click)="View(item.order_id)">

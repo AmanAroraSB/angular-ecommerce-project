@@ -19,7 +19,7 @@
           <img [src]="item.imageUrl[0]" class="card-img-top" alt="image" />
           <div class="card-body">
             <h5 class="item-name">{{ item.name }}</h5>
-            <p class="item-price">${{ item.price }}</p>
+            <p class="item-price">{{ item.price | currency : "INR" }}</p>
           </div>
         </a>
         <button class="btn btn-primary add-button" (click)="addtocart(item)">
