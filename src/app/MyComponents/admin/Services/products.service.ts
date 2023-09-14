@@ -57,7 +57,7 @@ export class ProductsService {
   MakePayment(food: any) {
     return this.apiservice.post(`${this.url}Payment/Payment`, food)
   }
-  addordersbysessionid(session_id: string, userid: number) {
-    return this.apiservice.get(`${this.url}Payment/AddOrders/${session_id}/${userid}`)
+  addordersbysessionid(session_id: string, userid: number, items: Item[]) {
+    return this.apiservice.post(`${this.url}Payment/AddOrders/${session_id}/${userid}`, items)
   }
 }

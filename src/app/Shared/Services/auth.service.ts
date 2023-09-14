@@ -50,7 +50,7 @@ export class AuthService {
     var user = localStorage.getItem("logged_in");
     if (user != null) {
       var logged_inuser: User = JSON.parse(user);
-      if (logged_inuser.role == "Admin") {
+      if (logged_inuser.Role == "Admin") {
 
         return logged_inuser
 

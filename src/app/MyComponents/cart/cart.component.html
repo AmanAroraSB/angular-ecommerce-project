@@ -14,10 +14,10 @@
     <tbody>
       <tr *ngFor="let item of items; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.price | currency : "INR" }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.price * item.quantity | currency : "INR" }}</td>
+        <td>{{ item.Name }}</td>
+        <td>{{ item.Price | currency : "INR" }}</td>
+        <td>{{ item.Quantity }}</td>
+        <td>{{ item.Price * item.Quantity | currency : "INR" }}</td>
         <td>
           <button class="btn btn-danger" (click)="deleteItem(item)">
             Remove
@@ -28,7 +28,7 @@
   </table>
   <p class="text-right">Total: {{ totalsum | currency : "INR" }}</p>
 
-  <button class="but" [disabled]="totalsum <= 0" routerLink="/bill">
+  <button class="but" [disabled]="totalsum <= 0"(click)="pay(items)">
     Pay {{ totalsum | currency : "INR" }}
   </button>
 </div>

@@ -24,15 +24,15 @@
         "
       >
         <td>{{ i + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.price | currency:'INR' }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.price * item.quantity | currency:'INR' }}</td>
+        <td>{{ item.Name }}</td>
+        <td>{{ item.Price | currency:'INR' }}</td>
+        <td>{{ item.Quantity }}</td>
+        <td>{{ item.Price * item.Quantity | currency:'INR' }}</td>
         <td>
-          <button class="btn btn-primary" (click)="Edit(item.id)">Edit</button>
+          <button class="btn btn-primary" (click)="Edit(item.Id)">Edit</button>
         </td>
         <td>
-          <button class="btn btn-danger" (click)="confirmdelete(item.id)">
+          <button class="btn btn-danger" (click)="confirmdelete(item.Id)">
             delete
           </button>
         </td>

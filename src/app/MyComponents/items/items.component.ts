@@ -55,8 +55,8 @@ export class ItemsComponent {
       // console.log(typeof parsed);
       parsed.forEach((element: Item) => {
         //console.log(element.name)
-        if (element.name == item.name) {
-          element.quantity += 1;
+        if (element.Name == item.Name) {
+          element.Quantity += 1;
 
           found = true;
 
@@ -70,7 +70,7 @@ export class ItemsComponent {
         this.total = 0;
         this.setcartitems.push(item);
         this.setcartitems.forEach(element => {
-          this.total += element.price * element.quantity;
+          this.total += element.Price * element.Quantity;
         });
         let addelemant = JSON.stringify(this.setcartitems);
         localStorage.setItem("key", addelemant);
@@ -80,7 +80,7 @@ export class ItemsComponent {
         this.total = 0;
         this.setcartitems = (parsed)
         this.setcartitems.forEach(element => {
-          this.total += element.price * element.quantity;
+          this.total += element.Price * element.Quantity;
         });
         let addelemant = JSON.stringify(this.setcartitems);
         localStorage.setItem("key", addelemant);
@@ -98,7 +98,7 @@ export class ItemsComponent {
       this.setcartitems = [];
       this.setcartitems.push(item);
       this.setcartitems.forEach(element => {
-        this.total += element.price * element.quantity;
+        this.total += element.Price * element.Quantity;
       });
       let addelemant = JSON.stringify(this.setcartitems)
       localStorage.setItem("key", addelemant);

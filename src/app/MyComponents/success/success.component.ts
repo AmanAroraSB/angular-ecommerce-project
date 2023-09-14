@@ -10,51 +10,53 @@ import alertify from 'alertifyjs'
   templateUrl: './success.component.html',
   styleUrls: ['./success.component.css']
 })
-export class SuccessComponent implements OnInit {
+export class SuccessComponent {
   id: string | null = null;
   itemss: any[] = [];
   currentPage = 1;
   sum = 0;
 
-  // constructor(private route: ActivatedRoute, private apiservice: ProductsService, private router: Router) {
-  //   
-  //   console.log(this.id);
-  //   var user = localStorage.getItem("logged_in");
-  //   var item = localStorage.getItem("key");
-  //   var userparse: User;
+  // // constructor(private route: ActivatedRoute, private apiservice: ProductsService, private router: Router) {
+  // //   
+  // //   console.log(this.id);
+  // //   var user = localStorage.getItem("logged_in");
+  // //   var item = localStorage.getItem("key");
+  // //   var userparse: User;
 
-  //   var itemparse: Item[];
-  //   var sum = 0;
+  // //   var itemparse: Item[];
+  // //   var sum = 0;
 
-  //   if (user != null && item != null) {
-  //     userparse = JSON.parse(user);
-  //     itemparse = JSON.parse(item);
-  //     itemparse.forEach(element => {
-  //       sum += element.price * element.quantity;
-  //     });
-  //     var order: Orders = {
-  //       name: userparse.userName, order_id: 0, userid: userparse.id, food_list: itemparse, sum: sum, toJson() {
+  // //   if (user != null && item != null) {
+  // //     userparse = JSON.parse(user);
+  // //     itemparse = JSON.parse(item);
+  // //     itemparse.forEach(element => {
+  // //       sum += element.price * element.quantity;
+  // //     });
+  // //     var order: Orders = {
+  // //       name: userparse.userName, order_id: 0, userid: userparse.id, food_list: itemparse, sum: sum, toJson() {
 
-  //       },
-  //     }
-  //     this.apiservice.AdddataOrders(order).subscribe(result => {
-  //       localStorage.removeItem('key');
-  //       console.log(result);
-  //       this.apiservice.getorderdetailsbysessionid(this.id).subscribe(result => {
-  //         console.log(result);
-  //         this.itemss = result;
-  //         console.log(this.itemss);
+  // //       },
+  // //     }
+  // //     this.apiservice.AdddataOrders(order).subscribe(result => {
+  // //       localStorage.removeItem('key');
+  // //       console.log(result);
+  // //       this.apiservice.getorderdetailsbysessionid(this.id).subscribe(result => {
+  // //         console.log(result);
+  // //         this.itemss = result;
+  // //         console.log(this.itemss);
 
-  //       })
+  // //       })
 
 
-  //     }, error => {
-  //       if (error) {
-  //         this.router.navigateByUrl("/Something");
-  //       }
-  //     })
-  //   }
-  // }
+  // //     }, error => {
+  // //       if (error) {
+  // //         this.router.navigateByUrl("/Something");
+  // //       }
+  // //     })
+  // //   }
+  // // }
+
+
   constructor(private apiservice: ProductsService, private route: ActivatedRoute) {
     this.route.queryParamMap.subscribe(param => {
       this.id = param.get('session_id');
@@ -71,21 +73,24 @@ export class SuccessComponent implements OnInit {
     if (user != null && item != null) {
       userparse = JSON.parse(user);
       itemparse = JSON.parse(item);
-      itemparse.forEach(element => {
-        sum += element.price * element.quantity;
 
-        this.apiservice.addordersbysessionid(this.id as unknown as string, userparse.id).subscribe(result => {
-          console.log(result);
-          localStorage.removeItem('key');
 
-        });
+      this.apiservice.addordersbysessionid(this.id as unknown as string, userparse.Id, itemparse).subscribe(result => {
+        console.log(result);
+        localStorage.removeItem('key');
+
+      }, err => {
+        console.log(err);
+
       });
+
 
     }
 
   }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
 
-  }
+  // }
+
 }

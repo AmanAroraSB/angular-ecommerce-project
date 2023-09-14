@@ -16,10 +16,10 @@
           routerLink="/Home/{{ item.id }}"
           style="text-decoration: none; color: black"
         >
-          <img [src]="item.imageUrl[0]" class="card-img-top" alt="image" />
+          <img [src]="item.ImageUrl[0]" class="card-img-top" alt="image" />
           <div class="card-body">
-            <h5 class="item-name">{{ item.name }}</h5>
-            <p class="item-price">{{ item.price | currency : "INR" }}</p>
+            <h5 class="item-name">{{ item.Name }}</h5>
+            <p class="item-price">{{ item.Price | currency : "INR" }}</p>
           </div>
         </a>
         <button class="btn btn-primary add-button" (click)="addtocart(item)">

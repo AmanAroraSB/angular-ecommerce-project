@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
   loggedinuser: any
   isLoggedIn$: any
   user: User = {
-    id: 0, userName: '', role: '', toJson() {
+    Id: 0, UserName: '', Role: '', toJson() {
 
     },
   };
@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
       } catch (error) {
      
       }
-      this.username = this.user.userName;
+      this.username = this.user.UserName;
 
 
 

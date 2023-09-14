@@ -31,27 +31,27 @@ export class AddproductComponent {
     const formData = new FormData(); // Correct the casing here
 
     for (var i = 0; i < length; i++) {
-     ;
+      ;
       files.push(event.target.images.files[i]);
       formData.append('Images[]', event.target.images.files[i] as File);
     }
 
 
     this.Producservice.uploadimagesItem(formData).subscribe(result => {
-      
+
       const imageurl = result as string[];
-      
+
 
       // Code dependent on the image upload result
       this.Producservice.AddProductItem({
-        imageUrl: imageurl,
+        ImageUrl: imageurl,
         Description: this.description,
-        quantity: this.quantity,
-        price: this.price,
-        type: this.type,
-        name: this.name
+        Quantity: this.quantity,
+        Price: this.price,
+        Type: this.type,
+        Name: this.name
       } as Item).subscribe(addResult => {
-        
+
         alertify.set('notifier', 'position', 'top-right');
         alertify.success("Product Saved Succesfully");
         this.router.navigateByUrl("Admin/list")

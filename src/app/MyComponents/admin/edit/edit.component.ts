@@ -24,18 +24,18 @@ export class EditComponent implements OnInit {
   constructor(private fb: FormBuilder, private Producservice: ProductsService, private route: ActivatedRoute, private router: Router) {
     this.Producservice.getdataItembyid(this.id as unknown as number).subscribe(resultt => {
       console.log(resultt);
-      this.id = resultt.id;
+      this.id = resultt.Id;
       this.item = resultt as Item;
       console.log(this.item);
       this.foodForm = this.fb.group({
-        name: [this.item.name, Validators.required],
-        type: [this.item.type, Validators.required],
-        price: [this.item.price, [Validators.required, Validators.min(1)]],
-        quantity: [this.item.quantity, [Validators.required, Validators.min(1)]],
-        description: [this.item.description, [Validators.required]],
+        name: [this.item.Name, Validators.required],
+        type: [this.item.Type, Validators.required],
+        price: [this.item.Price, [Validators.required, Validators.min(1)]],
+        quantity: [this.item.Quantity, [Validators.required, Validators.min(1)]],
+        description: [this.item.Description, [Validators.required]],
         images: [null,] // You can add validations for image URL format if needed
       });
-      this.item.imageUrl.forEach((element: any) => {
+      this.item.ImageUrl.forEach((element: any) => {
 
         this.url.push(element)
       });
@@ -105,13 +105,13 @@ export class EditComponent implements OnInit {
       //   });
       // });
       this.Producservice.EditProductItem({
-        id: this.id as unknown as number,
-        imageUrl: this.url,
+        Id: this.id as unknown as number,
+        ImageUrl: this.url,
         Description: this.description,
-        quantity: this.quantity,
-        price: this.price,
-        type: this.type,
-        name: this.name,
+        Quantity: this.quantity,
+        Price: this.price,
+        Type: this.type,
+        Name: this.name,
       } as Item).subscribe(result => {
 
         alertify.set('notifier', 'position', 'top-right');
@@ -121,13 +121,13 @@ export class EditComponent implements OnInit {
     }
     else {
       this.Producservice.EditProductItem({
-        id: this.id as unknown as number,
-        imageUrl: this.url,
+        Id: this.id as unknown as number,
+        ImageUrl: this.url,
         Description: this.description,
-        quantity: this.quantity,
-        price: this.price,
-        type: this.type,
-        name: this.name
+        Quantity: this.quantity,
+        Price: this.price,
+        Type: this.type,
+        Name: this.name
       } as Item).subscribe(editResult => {
 
         alertify.set('notifier', 'position', 'top-right');

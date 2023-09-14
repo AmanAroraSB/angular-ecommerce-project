@@ -2,11 +2,12 @@ import { ResourceModel } from "./Generic-resource-model";
 import { Item } from "./Item";
 
 export class Orders extends ResourceModel<Orders>{
-    public name!: string;
-    public order_id!: number;
-    public userid!: number;
+    public Name!: string;
+    public OrderID!: number;
+    public UserId!: number;
     public food_list!: Item[];
-    public sum!: number;
-    public Transaction_Intent_ID!: string;
+    public CreatedOn!:Date;
+    public Sum!: number;
+    public TransactionId!: string;
 
 }

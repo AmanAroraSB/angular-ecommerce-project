@@ -42,8 +42,8 @@ export class ItemSingleComponent implements OnInit {
       // console.log(typeof parsed);
       parsed.forEach((element: Item) => {
         //console.log(element.name)
-        if (element.name == item.name) {
-          element.quantity += 1;
+        if (element.Name == item.Name) {
+          element.Quantity += 1;
 
           found = true;
 
