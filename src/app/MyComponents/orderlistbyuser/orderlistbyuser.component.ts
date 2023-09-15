@@ -16,7 +16,7 @@ export class OrderlistbyuserComponent {
     var json = localStorage.getItem('logged_in');
     if (json != null)
       var object = JSON.parse(json);
-    var id = object.id;
+    var id = object.Id;
     this.orderservice.getorderbyuserid(id).subscribe((result) => {
 
       this.orders = result as Orders[];

@@ -22,6 +22,7 @@ import { OrderlistbyuserComponent } from './MyComponents/orderlistbyuser/orderli
 import { OrderdetailsComponent } from './MyComponents/orderdetails/orderdetails.component';
 import { SuccessComponent } from './MyComponents/success/success.component';
 import { SomethingWentWrongComponent } from './MyComponents/something-went-wrong/something-went-wrong.component';
+import { AddAddressComponent } from './MyComponents/add-address/add-address.component';
 
 
 const routes: Routes = [
@@ -38,11 +39,13 @@ const routes: Routes = [
   },
   {
     path: "bill", component: BillingDetailsComponent, canActivate: [authguardGuard]
+  }, {
+    path: "AddAddress", component: AddAddressComponent, canActivate: [authguardGuard]
   },
   {
     path: "Singup", component: SignUpFormComponent
-  },{
-    path:"Something",component:SomethingWentWrongComponent
+  }, {
+    path: "Something", component: SomethingWentWrongComponent
   },
   {
     path: "Login", component: LoginFormComponent, canActivate: []
@@ -50,9 +53,9 @@ const routes: Routes = [
     path: "orderdetails/:id", component: OrderdetailsComponent, canActivate: [logGuard]
   }, {
     path: "Aboutus", component: AboutUsComponent
-  }, {
-    path: "AddItem", component: AddproductComponent
-  }, {
+  }
+
+  , {
     path: "orders", component: OrderlistbyuserComponent, canActivate: [logGuard]
   }, {
     path: "Admin", component: AdminComponent, children: [{

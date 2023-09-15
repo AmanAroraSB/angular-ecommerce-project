@@ -1,8 +1,12 @@
 <div class="container">
   <h3>Order Details</h3>
-  <p>Name:{{ orders.name }}</p>
-  <p>Transaction ID:{{ orders.transaction_Intent_ID }}</p>
-  <p>Total Amount paid:{{ totalsum | currency : "INR" }}</p>
+  <p>Transaction ID:{{ orders[0].Orders.TransactionId }}</p>
+  <p>
+    Total Amount paid:{{
+      orders[0].Orders.Total
+        | currency : orders[0].Orders.Currency.toUpperCase()
+    }}
+  </p>
   <label for="searchfilter">Search</label>
   <input type="text" [(ngModel)]="serarchValue" />
   <table class="table table-striped border">
@@ -20,17 +24,16 @@
     <tbody>
       <tr
         *ngFor="
-          let item of orders.food_list
-            | searchfilter : serarchValue
+          let items of orders
             | paginate : { itemsPerPage: 5, currentPage: currentPage };
           let i = index
         "
       >
         <td>{{ i + 1 }}</td>
-        <td>{{ item.Name }}</td>
-        <td>{{ item.Price | currency : "INR" }}</td>
-        <td>{{ item.Quantity }}</td>
-        <td>{{ item.Price * item.Quantity | currency : "INR" }}</td>
+        <td>{{ items.Food.Name }}</td>
+        <td>{{ items.Price | currency : "INR" }}</td>
+        <td>{{ items.Quantity }}</td>
+        <td>{{ items.Price * items.Quantity | currency : "INR" }}</td>
         <!-- <td>
             <button class="btn btn-primary" (click)="Edit(item.id)">Edit</button>
           </td>
@@ -45,5 +48,11 @@
   <pagination-controls
     (pageChange)="currentPage = $event"
   ></pagination-controls>
-  <p class="text-right">Total: {{ totalsum | currency }}</p>
+  <p class="text-right">
+    Total:
+    {{
+      orders[0].Orders.Total
+        | currency : orders[0].Orders.Currency.toUpperCase()
+    }}
+  </p>
 </div>

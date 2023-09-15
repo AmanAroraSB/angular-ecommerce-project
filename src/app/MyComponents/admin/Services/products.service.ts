@@ -6,6 +6,7 @@ import { ResourceService } from '../../../core/Services/resource-service';
 import { ApiService } from 'src/app/core/Services/api.service';
 import { environment } from 'src/app/environments/environment';
 import { Orders } from 'src/app/core/Model/orders';
+import { Address } from 'src/app/core/Model/Address';
 @Injectable({
   providedIn: 'root'
 })
@@ -59,5 +60,11 @@ export class ProductsService {
   }
   addordersbysessionid(session_id: string, userid: number, items: Item[]) {
     return this.apiservice.post(`${this.url}Payment/AddOrders/${session_id}/${userid}`, items)
+  }
+  AddAddress(Address:Address){
+    return this.apiservice.post( `${this.url}/Address/Add`,Address)
+  }
+  GetAddressByUserid(id:number){
+    return this.apiservice.get(`${this.url}/Address/orderservice/${id}`)
   }
 }

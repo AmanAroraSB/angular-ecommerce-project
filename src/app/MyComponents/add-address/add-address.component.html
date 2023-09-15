@@ -1,0 +1,149 @@
+<h1 class="text-center">Add Address</h1>
+<div class="container">
+  <div class="row">
+    <form
+      [formGroup]="Address"
+      class="border border my-1 col-md-12"
+      (ngSubmit)="AddAddress()"
+    >
+      <div class="row my-4">
+        <div class="col-md-6">
+          <label for="" class="col-md-6 text-center"
+            >Country<span class="text-danger error" *ngIf="Country?.invalid"
+              >*</span
+            ></label
+          >
+          <input
+            type="text"
+            name="Country"
+            id=" Country"
+            class="col-md-6"
+            formControlName="Country"
+            placeholder="Your Country"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <span
+          style="padding-left: 15%"
+          class="error text-danger col-md-5 text-center"
+          *ngIf="Country?.invalid && Country && Country.touched"
+          >Country Is Required</span
+        >
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-6">
+          <label for="" class="col-md-6 text-center"
+            >State<span class="text-danger error" *ngIf="State?.invalid"
+              >*</span
+            ></label
+          >
+          <input
+            class="col-md-6"
+            type="text"
+            name="State"
+            id="State"
+            formControlName="State"
+            placeholder="Your State"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <span
+          style="padding-left: 15%"
+          class="error text-danger col-md-5 text-center"
+          *ngIf="State?.invalid && State && State.touched"
+          >Password Is Required</span
+        >
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-6">
+          <label for="" class="col-md-6 text-center"
+            >City<span class="text-danger error" *ngIf="City?.invalid"
+              >*</span
+            ></label
+          >
+          <input
+            class="col-md-6"
+            type="text"
+            name="City"
+            id="City"
+            formControlName="City"
+            placeholder="Your City"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <span
+          style="padding-left: 15%"
+          class="error text-danger col-md-5 text-center"
+          *ngIf="City?.invalid && City && City.touched"
+          >City Is Required</span
+        >
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-6">
+          <label for="" class="col-md-6 text-center"
+            >ZipCode<span class="text-danger error" *ngIf="ZipCode?.invalid"
+              >*</span
+            ></label
+          >
+          <input
+            class="col-md-6"
+            type="number"
+            name="ZipCode"
+            id="ZipCode"
+            formControlName="ZipCode"
+            placeholder="Your ZipCode"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <span
+          style="padding-left: 15%"
+          class="error text-danger col-md-5 text-center"
+          *ngIf="ZipCode?.invalid && ZipCode && ZipCode.touched"
+          >ZipCode Is Required</span
+        >
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-6">
+          <label for="" class="col-md-6 text-center"
+            >StreetAddress<span
+              class="text-danger error"
+              *ngIf="StreetAddress?.invalid"
+              >*</span
+            ></label
+          >
+          <input
+            class="col-md-6"
+            type="StreetAddress"
+            name="StreetAddress"
+            id="StreetAddress"
+            formControlName="StreetAddress"
+            placeholder="Your StreetAddress"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <span
+          style="padding-left: 15%"
+          class="error text-danger col-md-5 text-center"
+          *ngIf="
+            StreetAddress?.invalid && StreetAddress && StreetAddress.touched
+          "
+          >StreetAddress Is Required</span
+        >
+      </div>
+      <div class="row">
+        <button class="col-md-2 my-5 login-btn" [disabled]="Address.invalid">
+          Add Address
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

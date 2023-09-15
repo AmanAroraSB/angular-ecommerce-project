@@ -34,6 +34,7 @@ import { OrderdetailsComponent } from './MyComponents/orderdetails/orderdetails.
 import { OrderlistbyuserComponent } from './MyComponents/orderlistbyuser/orderlistbyuser.component';
 import { SuccessComponent } from './MyComponents/success/success.component';
 import { SomethingWentWrongComponent } from './MyComponents/something-went-wrong/something-went-wrong.component';
+import { AddAddressComponent } from './MyComponents/add-address/add-address.component';
 
 
 
@@ -63,6 +64,7 @@ import { SomethingWentWrongComponent } from './MyComponents/something-went-wrong
     OrderlistbyuserComponent,
     SuccessComponent,
     SomethingWentWrongComponent,
+    AddAddressComponent,
 
 
     // AddtodoComponent
