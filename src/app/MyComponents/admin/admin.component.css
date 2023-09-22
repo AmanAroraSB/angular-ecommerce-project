@@ -75,6 +75,14 @@ a {
   min-height: 70vh;
 }
 
+.active {
+  background-color: #a89697;
+}
+
+.sidebar {
+  padding: 0px;
+}
+
 .side-nav a {
   display: block;
   padding: 10px 20px;

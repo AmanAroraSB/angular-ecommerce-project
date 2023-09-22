@@ -58,13 +58,13 @@ export class ProductsService {
   MakePayment(food: any) {
     return this.apiservice.post(`${this.url}Payment/Payment`, food)
   }
-  addordersbysessionid(session_id: string, userid: number, items: Item[]) {
-    return this.apiservice.post(`${this.url}Payment/AddOrders/${session_id}/${userid}`, items)
+  addordersbysessionid(session_id: string, userid: number, billingdetailsid: number, items: Item[]) {
+    return this.apiservice.post(`${this.url}Payment/AddOrders/${session_id}/${userid}/${billingdetailsid}`, items)
   }
-  AddAddress(Address:Address){
-    return this.apiservice.post( `${this.url}/Address/Add`,Address)
+  AddAddress(Address: Address) {
+    return this.apiservice.post(`${this.url}Address/Add`, Address)
   }
-  GetAddressByUserid(id:number){
-    return this.apiservice.get(`${this.url}/Address/orderservice/${id}`)
+  GetAddressByUserid(id: number) {
+    return this.apiservice.get(`${this.url}Address/GetByUserId/${id}`)
   }
 }

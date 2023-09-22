@@ -5,7 +5,7 @@
       <div id="productCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div
-            *ngFor="let imageUrl of item.imageUrl; let i = index"
+            *ngFor="let imageUrl of item.ImageUrl; let i = index"
             class="carousel-item"
             [class.active]="i === 0"
           >
@@ -35,9 +35,9 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h1 class="product-name">{{ item.name }}</h1>
-      <p class="product-description">{{ item.description }}</p>
-      <p class="product-price">{{ item.price | currency : "INR" }}</p>
+      <h1 class="product-name">{{ item.Name }}</h1>
+      <p class="product-description">{{ item.Description }}</p>
+      <p class="product-price">{{ item.Price | currency : "INR" }}</p>
       <button
         class="btn btn-primary add-to-cart-button"
         (click)="addtocart(item)"

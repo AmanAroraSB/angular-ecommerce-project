@@ -32,6 +32,29 @@ h3 {
     cursor: pointer;
 }
 
+@media print {
+    button {
+        display: none;
+
+    }
+
+    nav {
+        display: none;
+    }
+
+    header {
+        display: none;
+    }
+
+    .navbar1 {
+        display: none;
+    }
+
+    app-navbar {
+        display: none;
+    }
+}
+
 .but:disabled {
     background-color: #ccc;
     cursor: not-allowed;

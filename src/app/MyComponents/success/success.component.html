@@ -20,10 +20,10 @@
       "
     >
       <td>{{ i + 1 + (currentPage - 1) * 5 }}</td>
-      <td>{{ item.name }}</td>
-      <td>{{ item.price }}</td>
-      <td>{{ item.quantity }}</td>
-      <td>{{ item.Total | currency : "INR" }}</td>
+      <td>{{ item.Food.Name }}</td>
+      <td>{{ item.Food.Price }}</td>
+      <td>{{ item.Quantity }}</td>
+      <td>{{ item.Quantity * item.Price | currency : "INR" }}</td>
     </tr>
   </tbody>
 </table>

@@ -32,7 +32,12 @@ body {
   color: #007bff;
 }
 
+/* .active {
+  color: #007bff;
+} */
+
 .shopping-cart {
   font-size: 2rem;
   color: #333;
 }
+

@@ -1,227 +1,133 @@
-<div class="container my-3">
-  <div class="row">
-    <form
-      action=""
-      class="col-md-6 border border-dark"
-      [formGroup]="billingdetails"
-      (ngSubmit)="billdetailssubmit()"
-    >
-      <h3>Bill Details</h3>
-      <div class="row">
-        <div class="col-md-5">
-          <label for="firstname">First Name </label>
-          <input
-            type="text"
-            name="firstname"
-            id="firstname"
-            formControlName="firstname"
-            placeholder="your first name"
-          />
-          <span
-            class="error text-danger"
-            *ngIf="firstname?.invalid && firstname && firstname.touched"
-            >first name is required</span
-          >
-        </div>
-        <div class="col-md-5">
-          <label for="">Last name</label>
-          <input
-            type="text"
-            name="Lastname"
-            id="Lastname"
-            formControlName="Lastname"
-            placeholder="your last name"
-          />
-          <span
-            class="error text-danger"
-            *ngIf="Lastname?.invalid && Lastname && Lastname.touched"
-            >last name is required</span
-          >
-        </div>
-      </div>
-      <div class="row my-2">
+<div class="d-flex">
+  <div class="container my-3 fl">
+    <div class="row">
+      <form
+        action=""
+        class="col-md-11 border border-dark"
+        [formGroup]="billingdetails"
+        (ngSubmit)="billdetailssubmit()"
+      >
+        <h3>Bill Details</h3>
         <div class="row">
-          <label for="Gender" class="col-md-2">Gender </label>
-          <div class="col-md-2">
+          <div class="col-md-6">
+            <label for="firstname">First Name </label>
             <input
-              type="radio"
-              name="Gender"
-              id="Male"
-              value="Male"
-              formControlName="Gender"
+              type="text"
+              name="firstname"
+              id="firstname"
+              formControlName="firstname"
+              placeholder="your first name"
             />
-            <label for="Male"> Male </label>
+            <span
+              class="error text-danger"
+              *ngIf="firstname?.invalid && firstname && firstname.touched"
+              >first name is required</span
+            >
           </div>
-          <div class="col-md-2">
+          <div class="col-md-6">
+            <label for="">Last name</label>
             <input
-              type="radio"
-              name="Gender"
-              id="Female"
-              formControlName="Gender"
-              value="Female"
+              type="text"
+              name="Lastname"
+              id="Lastname"
+              formControlName="Lastname"
+              placeholder="your last name"
             />
-            <label for="Female"> Female </label>
-          </div>
-          <div class="col-md-2">
-            <input
-              type="radio"
-              name="Gender"
-              id="other"
-              value="other"
-              formControlName="Gender"
-            />
-            <label for="other"> other </label>
+            <span
+              class="error text-danger"
+              *ngIf="Lastname?.invalid && Lastname && Lastname.touched"
+              >last name is required</span
+            >
           </div>
         </div>
-        <span
-          class="text-danger"
-          *ngIf="Gender?.invalid && Gender && Gender?.touched"
-        >
-          Gender is required</span
-        >
-      </div>
+        <div class="row my-2">
+          <div class="row">
+            <label for="Gender" class="col-md-2">Gender </label>
+            <div class="col-md-2">
+              <input
+                type="radio"
+                name="Gender"
+                id="Male"
+                value="Male"
+                formControlName="Gender"
+              />
+              <label for="Male"> Male </label>
+            </div>
+            <div class="col-md-2">
+              <input
+                type="radio"
+                name="Gender"
+                id="Female"
+                formControlName="Gender"
+                value="Female"
+              />
+              <label for="Female"> Female </label>
+            </div>
+            <div class="col-md-2">
+              <input
+                type="radio"
+                name="Gender"
+                id="other"
+                value="other"
+                formControlName="Gender"
+              />
+              <label for="other"> other </label>
+            </div>
+          </div>
+          <span
+            class="text-danger"
+            *ngIf="Gender?.invalid && Gender && Gender?.touched"
+          >
+            Gender is required</span
+          >
+        </div>
 
-      <div class="row my-4">
-        <label for="country" class="col-md-2">country</label>
-        <select name="country" id="" class="col-md-3" formControlName="country">
-          <option value="India">India</option>
-          <option value="other">other</option>
-        </select>
-        <span
-          class="text-danger"
-          *ngIf="country?.invalid && country && country.touched"
-        >
-          country is required</span
-        >
-      </div>
-      <div class="row my-4">
-        <label for="State" class="col-md-2">State</label>
-        <select name="State" id="" class="col-md-3" formControlName="State">
-          <option value="AN">Andaman and Nicobar Islands</option>
-          <option value="AP">Andhra Pradesh</option>
-          <option value="AR">Arunachal Pradesh</option>
-          <option value="AS">Assam</option>
-          <option value="BR">Bihar</option>
-          <option value="CH">Chandigarh</option>
-          <option value="CT">Chhattisgarh</option>
-          <option value="DN">Dadra and Nagar Haveli</option>
-          <option value="DD">Daman and Diu</option>
-          <option value="DL">Delhi</option>
-          <option value="GA">Goa</option>
-          <option value="GJ">Gujarat</option>
-          <option value="HR">Haryana</option>
-          <option value="HP">Himachal Pradesh</option>
-          <option value="JK">Jammu and Kashmir</option>
-          <option value="JH">Jharkhand</option>
-          <option value="KA">Karnataka</option>
-          <option value="KL">Kerala</option>
-          <option value="LA">Ladakh</option>
-          <option value="LD">Lakshadweep</option>
-          <option value="MP">Madhya Pradesh</option>
-          <option value="MH">Maharashtra</option>
-          <option value="MN">Manipur</option>
-          <option value="ML">Meghalaya</option>
-          <option value="MZ">Mizoram</option>
-          <option value="NL">Nagaland</option>
-          <option value="OR">Odisha</option>
-          <option value="PY">Puducherry</option>
-          <option value="PB">Punjab</option>
-          <option value="RJ">Rajasthan</option>
-          <option value="SK">Sikkim</option>
-          <option value="TN">Tamil Nadu</option>
-          <option value="TG">Telangana</option>
-          <option value="TR">Tripura</option>
-          <option value="UP">Uttar Pradesh</option>
-          <option value="UT">Uttarakhand</option>
-          <option value="WB">West Bengal</option>
-        </select>
-        <span
-          class="text-danger"
-          *ngIf="State?.invalid && State && State.touched"
-        >
-          State is required</span
-        >
-      </div>
-      <div class="row my-4">
-        <label for="city" class="col-md-2">city</label>
-        <input
-          name="city"
-          id="city"
-          class="col-md-3"
-          placeholder="Your City"
-          formControlName="City"
-        />
-        <span class="text-danger" *ngIf="City?.invalid && City && City.touched">
-          city is required</span
-        >
-      </div>
-      <div class="row my-4">
-        <label for="Address" class="col-md-2">Address</label>
-        <input
-          name="Address"
-          id="Address"
-          class="col-md-3"
-          placeholder="Your Address"
-          formControlName="Address"
-        />
-        <span
-          class="text-danger"
-          *ngIf="Address?.invalid && Address && Address.touched"
-          >address is required</span
-        >
-      </div>
-      <div class="row my-4">
-        <label for="email" class="col-md-2">Email</label>
-        <input
-          name="email"
-          id="email"
-          class="col-md-3"
-          placeholder="Your Email"
-          formControlName="Email"
-        />
-        <span
-          class="text-danger"
-          *ngIf="Email?.invalid && Email && Email?.touched"
-        >
-          email is required</span
-        >
-      </div>
-      <div class="row my-4">
-        <label for="phone" class="col-md-2">Phone</label>
-        <input
-          name="phone"
-          id="phone"
-          class="col-md-3"
-          placeholder="Your Phone Number"
-          formControlName="phone"
-        />
-        <span
-          class="text-danger"
-          *ngIf="phone?.invalid && phone && phone.touched"
-          >phone is required</span
-        >
-      </div>
-      <div class="row my-4">
-        <label for="Zip" class="col-md-2">Zip Code</label>
-        <input
-          name="Zip"
-          id="Zip"
-          class="col-md-3"
-          placeholder="Your ZipCode"
-          formControlName="Zip"
-        />
-        <span class="text-danger" *ngIf="Zip?.invalid && Zip && Zip.touched">
-          Zip is required</span
-        >
-      </div>
-      <div class="row">
-        <button
-          class="submit-button offset-md-4 col-md-4"
-          [disabled]="billingdetails.invalid"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
+        <div class="row my-4">
+          <label for="email" class="col-md-2">Email</label>
+          <input
+            name="email"
+            id="email"
+            class="col-md-3"
+            placeholder="Your Email"
+            formControlName="Email"
+          />
+          <span
+            class="text-danger"
+            *ngIf="Email?.invalid && Email && Email?.touched"
+          >
+            email is required</span
+          >
+        </div>
+        <div class="row my-4">
+          <label for="phone" class="col-md-2">Phone</label>
+          <input
+            name="phone"
+            id="phone"
+            class="col-md-3"
+            placeholder="Your Phone Number"
+            formControlName="phone"
+          />
+          <span
+            class="text-danger"
+            *ngIf="phone?.invalid && phone && phone.touched"
+            >phone is required</span
+          >
+        </div>
+
+        <div class="row">
+          <button
+            class="submit-button offset-md-4 col-md-4"
+            [disabled]="billingdetails.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <app-addresses
+      (addressSelected)="onAddressSelected($event)"
+    ></app-addresses>
   </div>
 </div>

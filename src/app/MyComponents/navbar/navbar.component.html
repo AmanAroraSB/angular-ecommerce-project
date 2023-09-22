@@ -16,13 +16,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-4">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/Home"
+            <li class="nav-item" routerLinkActive="active">
+              <a
+                class="nav-link"
+                aria-current="page"
+                routerLink="/Home"
+                routerLinkActive="active"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" [ngClass]="isaboutus()" aria-current="page" routerLink="/Aboutus"
+              <a
+                class="nav-link"
+                [ngClass]="isaboutus()"
+                aria-current="page"
+                routerLink="/Aboutus"
+                routerLinkActive="active"
                 >About us</a
               >
             </li>
@@ -30,6 +39,7 @@
               <a
                 class="nav-link"
                 routerLink="Singup"
+                routerLinkActive="active"
                 *ngIf="signupservice.Visible && !logggedIn()"
                 >Sign Up</a
               >
@@ -38,17 +48,18 @@
               <a
                 class="nav-link"
                 routerLink="Login"
+                routerLinkActive="active"
                 *ngIf="loginservice.Visible && !logggedIn()"
                 >Login</a
               >
             </li>
             <li class="nav-item">
-              <a routerLink="orders" class="nav-link" *ngIf="logggedIn()"
+              <a routerLink="orders"  routerLinkActive="active" class="nav-link" *ngIf="logggedIn()"
                 >Orders</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="Admin" *ngIf="isadmin()">Admin</a>
+              <a class="nav-link" routerLink="Admin"  routerLinkActive="active" *ngIf="isadmin()">Admin</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" *ngIf="logggedIn()" (click)="logout()"

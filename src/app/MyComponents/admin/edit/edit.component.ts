@@ -50,19 +50,22 @@ export class EditComponent implements OnInit {
     });
   }
   get description() {
-    return this.foodForm.value.description;
+    return this.foodForm.get("description");
   }
   get quantity() {
-    return this.foodForm.value.quantity;
+    return this.foodForm.get("quantity");
   }
   get name() {
-    return this.foodForm.value.name;
+    return this.foodForm.get("name");
   }
   get type() {
-    return this.foodForm.value.type;
+    return this.foodForm.get("type");
   }
   get price() {
-    return this.foodForm.value.price;
+    return this.foodForm.get("price");
+  }
+  get Image() {
+    return this.foodForm.get("images");
   }
   ngOnInit(): void {
 
@@ -107,11 +110,11 @@ export class EditComponent implements OnInit {
       this.Producservice.EditProductItem({
         Id: this.id as unknown as number,
         ImageUrl: this.url,
-        Description: this.description,
-        Quantity: this.quantity,
-        Price: this.price,
-        Type: this.type,
-        Name: this.name,
+        Description: this.description?.value,
+        Quantity: this.quantity?.value,
+        Price: this.price?.value,
+        Type: this.type?.value,
+        Name: this.name?.value,
       } as Item).subscribe(result => {
 
         alertify.set('notifier', 'position', 'top-right');
@@ -123,11 +126,11 @@ export class EditComponent implements OnInit {
       this.Producservice.EditProductItem({
         Id: this.id as unknown as number,
         ImageUrl: this.url,
-        Description: this.description,
-        Quantity: this.quantity,
-        Price: this.price,
-        Type: this.type,
-        Name: this.name
+        Description: this.description?.value,
+        Quantity: this.quantity?.value,
+        Price: this.price?.value,
+        Type: this.type?.value,
+        Name: this.name?.value
       } as Item).subscribe(editResult => {
 
         alertify.set('notifier', 'position', 'top-right');

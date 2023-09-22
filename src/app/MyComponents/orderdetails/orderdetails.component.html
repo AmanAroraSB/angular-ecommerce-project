@@ -1,12 +1,38 @@
 <div class="container">
   <h3>Order Details</h3>
-  <p>Transaction ID:{{ orders[0].Orders.TransactionId }}</p>
-  <p>
-    Total Amount paid:{{
-      orders[0].Orders.Total
-        | currency : orders[0].Orders.Currency.toUpperCase()
-    }}
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p><b>Name:</b>{{ orders[0].Orders.BillingDetails.Name }}</p>
+      <p><b>Gender:</b>{{ orders[0].Orders.BillingDetails.Gender }}</p>
+      <p>
+        <b>Phone Number:</b>{{ orders[0].Orders.BillingDetails.PhoneNumber }}
+      </p>
+      <p><b>Email:</b>{{ orders[0].Orders.BillingDetails.Email }}</p>
+      <p><b>Transaction ID:</b>{{ orders[0].Orders.TransactionId }}</p>
+      <p>
+        <b> Ordered On:</b
+        >{{ orders[0].Orders.CreatedOn | date : "dd-MM-YYYY EEEE" }}
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p><b>Country:</b>{{ orders[0].Orders.BillingDetails.Country }}</p>
+      <p><b>State:</b>{{ orders[0].Orders.BillingDetails.State }}</p>
+      <p><b>City:</b>{{ orders[0].Orders.BillingDetails.City }}</p>
+      <p>
+        <b>StreetAddress:</b>{{ orders[0].Orders.BillingDetails.StreetAddress }}
+      </p>
+      <p><b>Zipcode:</b>{{ orders[0].Orders.BillingDetails.ZipCode }}</p>
+
+      <p>
+        <b> Total Amount paid:</b
+        >{{
+          orders[0].Orders.Total
+            | currency : orders[0].Orders.Currency.toUpperCase()
+        }}
+      </p>
+    </div>
+  </div>
+
   <label for="searchfilter">Search</label>
   <input type="text" [(ngModel)]="serarchValue" />
   <table class="table table-striped border">
@@ -56,3 +82,4 @@
     }}
   </p>
 </div>
+<button onclick="window.print()">print</button>

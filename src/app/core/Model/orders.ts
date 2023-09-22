@@ -1,3 +1,4 @@
+import { BillingDetails } from "./BillingDetails";
 import { ResourceModel } from "./Generic-resource-model";
 import { Item } from "./Item";
 import { User } from "./User";
@@ -12,5 +13,6 @@ export class Orders extends ResourceModel<Orders>{
     public Total!: number;
     public TransactionId!: string;
     public BillingDetailsId!:number;
+    public BillingDetails!:BillingDetails;
 
 }

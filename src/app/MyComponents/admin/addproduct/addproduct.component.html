@@ -1,28 +1,70 @@
 <h1>Add Product</h1>
 <form [formGroup]="foodForm" (ngSubmit)="onSubmit($event)" class="border my-6">
-  <label for="name" class="my-2">Name:</label>
-  <input type="text" id="name" formControlName="name" required />
-
-  <label for="type">Type:</label>
-  <input type="text" id="type" formControlName="type" required />
-
-  <label for="price">Price:</label>
-  <input type="number" id="price" formControlName="price" required />
-
-  <label for="quantity">Quantity:</label>
-  <input type="number" id="quantity" formControlName="quantity" required />
-
-  <label for="description">Description:</label>
-  <textarea id="description" formControlName="description"></textarea>
-
-  <label for="image">Image URL:</label>
-  <input
-    type="file"
-    id="images"
-    formControlName="images"
-    accept="image/*"
-    multiple
-  />
-
-  <button type="submit" [disabled]="!foodForm.valid">Add Food Item</button>
+  <div class="form-group">
+    <div class="form-control">
+      <span *ngIf="name?.invalid && name" class="text-danger">*</span>
+      <label for="name" class="my-2 d-inline">Name:</label>
+      <input type="text" id="name" formControlName="name" />
+      <span *ngIf="name?.invalid && name && name.touched" class="text-danger"
+        >Name is Required</span
+      >
+    </div>
+    <div class="form-control">
+      <span *ngIf="type?.invalid && type" class="text-danger">*</span>
+      <label for="type" class="d-inline">Type:</label>
+      <input type="text" id="type" formControlName="type" />
+      <span *ngIf="type?.invalid && type && type.touched" class="text-danger"
+        >Type is Required</span
+      >
+    </div>
+    <div class="form-control">
+      <span *ngIf="price?.invalid && price" class="text-danger">*</span>
+      <label for="price" class="d-inline">Price:</label>
+      <input type="number" id="price" formControlName="price" />
+      <span *ngIf="price?.invalid && price && price.touched" class="text-danger"
+        >Price is Required</span
+      >
+    </div>
+    <div class="form-control">
+      <span *ngIf="quantity?.invalid && quantity" class="text-danger">*</span>
+      <label for="quantity" class="d-inline">Quantity:</label>
+      <input type="number" id="quantity" formControlName="quantity" />
+      <span
+        *ngIf="quantity?.invalid && quantity && quantity.touched"
+        class="text-danger"
+        >Quantity is Required</span
+      >
+    </div>
+    <div class="form-control">
+      <span *ngIf="description?.invalid && description" class="text-danger"
+        >*</span
+      >
+      <label for="description" class="d-inline">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <span
+        *ngIf="description?.invalid && description && description.touched"
+        class="text-danger"
+        >Description is Required</span
+      >
+    </div>
+    <div class="form-control">
+      <span *ngIf="Image?.invalid && Image" class="text-danger"> * </span>
+      <label for="image" class="d-inline">Image URL:</label>
+      <input
+        type="file"
+        id="images"
+        class="d-block"
+        formControlName="images"
+        accept="image/*"
+        multiple
+      />
+      <br />
+      <div *ngIf="Image?.invalid && Image && Image.touched" class="text-danger">
+        Image is Required
+      </div>
+    </div>
+    <div class="form-control">
+      <button type="submit" [disabled]="!foodForm.valid">Add Food Item</button>
+    </div>
+  </div>
 </form>

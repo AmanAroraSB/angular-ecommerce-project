@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Address } from 'src/app/core/Model/Address';
 import { ProductsService } from '../admin/Services/products.service';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-add-address',
@@ -9,7 +10,7 @@ import { ProductsService } from '../admin/Services/products.service';
   styleUrls: ['./add-address.component.css']
 })
 export class AddAddressComponent {
-  constructor(private Addressservice:ProductsService){
+  constructor(private Addressservice: ProductsService) {
 
   }
   Address = new FormGroup({
@@ -37,6 +38,11 @@ export class AddAddressComponent {
   }
 
   AddAddress() {
+    var user = localStorage.getItem("logged_in");
+    if (user)
+      var parseduser = JSON.parse(user);
+
+    var userid = parseduser.Id;
     var Address: Address = {
 
 
@@ -45,15 +51,22 @@ export class AddAddressComponent {
       State: this.State?.value ?? "",
       ZipCode: this.ZipCode?.value as unknown as number ?? 0,
       StreetAddress: this.StreetAddress?.value ?? "",
-      Id: 0
-      , toJson() {}
+      Id: 0,
+      UserId: userid
+      , toJson() { }
     };
-this.Addressservice.AddAddress(Address).subscribe(res=>{
-  console.log(res);
-  
-},err=>{
-  console.log(err);
-  
-})
+    console.log(Address);
+
+    this.Addressservice.AddAddress(Address).subscribe(res => {
+
+      alertifyjs.set('notifier', 'position', 'top-right');
+      alertifyjs.success("Address Added Successfully");
+      
+
+    }, err => {
+      alertifyjs.set('notifier', 'position', 'top-right');
+      alertifyjs.error("Something Went Wrong");
+
+    })
   }
 }

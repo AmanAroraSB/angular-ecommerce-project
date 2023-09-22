@@ -5,6 +5,7 @@ import { Orders } from 'src/app/core/Model/orders';
 import { Item } from 'src/app/core/Model/Item';
 import { User } from 'src/app/core/Model/User';
 import alertify from 'alertifyjs'
+import { OrderItems } from 'src/app/core/Model/OrderItem';
 @Component({
   selector: 'app-success',
   templateUrl: './success.component.html',
@@ -12,9 +13,10 @@ import alertify from 'alertifyjs'
 })
 export class SuccessComponent {
   id: string | null = null;
-  itemss: any[] = [];
+  itemss: OrderItems[] = [];
   currentPage = 1;
   sum = 0;
+  billingdetailsid: any;
 
   // // constructor(private route: ActivatedRoute, private apiservice: ProductsService, private router: Router) {
   // //   
@@ -61,7 +63,14 @@ export class SuccessComponent {
     this.route.queryParamMap.subscribe(param => {
       this.id = param.get('session_id');
     });
-    console.log(this.id);
+    var billdetails = localStorage.getItem('BillingDetails');
+    if (billdetails)
+      this.billingdetailsid = JSON.parse(billdetails);
+
+    console.log(this.billingdetailsid);
+
+
+    // console.log(this.id);
 
     var user = localStorage.getItem("logged_in");
     var item = localStorage.getItem("key");
@@ -75,9 +84,11 @@ export class SuccessComponent {
       itemparse = JSON.parse(item);
 
 
-      this.apiservice.addordersbysessionid(this.id as unknown as string, userparse.Id, itemparse).subscribe(result => {
+      this.apiservice.addordersbysessionid(this.id as unknown as string, userparse.Id, this.billingdetailsid, itemparse).subscribe(result => {
         console.log(result);
+        this.itemss = result;
         localStorage.removeItem('key');
+        localStorage.removeItem("BillingDetails");
 
       }, err => {
         console.log(err);

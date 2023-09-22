@@ -1,0 +1,28 @@
+<form action="" onsubmit="Addressvalue()">
+  <div class="row">
+    <div
+      class="col-md-5 border mx-2"
+      *ngFor="let address of addresses; let i = index"
+    >
+      <h5>
+        <input
+          type="radio"
+          name="address"
+          id="address_{{ address.Id }}"
+          value="{{ i }}"
+          (change)="onAddressSelect(i)"
+        />Address
+      </h5>
+      <div><span>Country:</span>{{ address.Country }}</div>
+      <div><span>State:</span>{{ address.State }}</div>
+      <div><span>City:</span>{{ address.City }}</div>
+      <div><span>Zip Code:</span>{{ address.ZipCode }}</div>
+      <div><span>Street Address:</span>{{ address.StreetAddress }}</div>
+    </div>
+  </div>
+</form>
+<div class="row center">
+  <button class=" col-md-3" routerLink="/AddAddress">
+    Add New Address
+  </button>
+</div>
