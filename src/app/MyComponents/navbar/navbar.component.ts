@@ -22,14 +22,14 @@ export class NavbarComponent implements OnInit {
   loggedinuser: any
   isLoggedIn$: any
   user: User = {
-    Id: 0, UserName: '', Role: '', toJson() {
+    Id: 0, UserName: '', Role: '', Token: '', toJson() {
 
     },
   };
   username: string = '';
   ngOnInit(): void {
     this.isLoggedIn$ = this.authervice.isloggendin();
- 
+
 
 
   }
@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
         this.loggedinuser = JSON.parse(storedData) as User;
         this.user = JSON.parse(storedData) as User;
       } catch (error) {
-     
+
       }
       this.username = this.user.UserName;
 
@@ -54,15 +54,15 @@ export class NavbarComponent implements OnInit {
   showlogedin() {
     return this.route.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-     
+
         if (val.url == "/" || val.url == "/Login" || val.url == "/Home") {
-    
+
           return this.showlogin = false;
 
 
 
         } else {
-         
+
           return this.showlogin = true;
 
         }
@@ -76,11 +76,11 @@ export class NavbarComponent implements OnInit {
     alertifyjs.success("logout succefully")
     this.route.navigateByUrl("");
     localStorage.removeItem("key")
-   
+
 
   }
   onlogin() {
-  
+
 
     if (this.route.url == "/" || this.route.url == "/Login") {
       return false

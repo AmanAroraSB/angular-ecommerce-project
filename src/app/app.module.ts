@@ -9,7 +9,7 @@ import { CartComponent } from './MyComponents/cart/cart.component';
 import { PagenotfoundComponent } from './MyComponents/pagenotfound/pagenotfound.component';
 
 import { FooterComponent } from './MyComponents/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BillingDetailsComponent } from './MyComponents/billing-details/billing-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpFormComponent } from './MyComponents/sign-up-form/sign-up-form.component';
@@ -36,6 +36,7 @@ import { SuccessComponent } from './MyComponents/success/success.component';
 import { SomethingWentWrongComponent } from './MyComponents/something-went-wrong/something-went-wrong.component';
 import { AddAddressComponent } from './MyComponents/add-address/add-address.component';
 import { AddressesComponent } from './MyComponents/addresses/addresses.component';
+import { TokenInterceptor } from './Shared/Interceptor/token.interceptor';
 
 
 
@@ -76,7 +77,7 @@ import { AddressesComponent } from './MyComponents/addresses/addresses.component
     AppRoutingModule, HttpClientModule
     , ReactiveFormsModule, NgxPaginationModule, FormsModule,
   ],
-  providers: [AuthService, ProductsService],
+  providers: [AuthService, ProductsService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

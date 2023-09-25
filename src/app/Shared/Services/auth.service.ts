@@ -12,12 +12,12 @@ export class AuthService {
   url = "https://localhost:7231/api/Account/";
   constructor(private http: HttpClient) { }
   CreateUser(data: object) {
-    
+
 
     return this.http.post(this.url + "CreateUser", data, { responseType: 'text' });
   }
   loginuser(data: object) {
-   
+
     return this.http.post(this.url + "Login", data, { responseType: 'text' });
 
   }
@@ -32,6 +32,20 @@ export class AuthService {
   }
   settoken(token: string) {
     localStorage.setItem("logged_in", token);
+  }
+  gettoken() {
+    var local = localStorage.getItem("logged_in");
+    if (local != null) {
+
+      var user = JSON.parse(local);
+    }
+    if (user) {
+     
+
+      return user.Token;
+    } else {
+      return null;
+    }
   }
   isloggendin() {
     var local = localStorage.getItem("logged_in");
